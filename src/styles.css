@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  font-family: "Jacques Francois", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
