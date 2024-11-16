@@ -1,0 +1,25 @@
+<nav class="h-screen flex items-center w-32">
+  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-center w-full" [ngClass]="{'rounded-xl': !isSearchSlideVisible, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': isSearchSlideVisible}">
+    <app-site-title></app-site-title>
+    
+    <button routerLink="/authentication">
+      <i class="bi bi-person-fill text-primary text-3xl"></i>
+    </button>
+
+    <button (click)="isSearchSlideVisible = !isSearchSlideVisible" [ngClass]="{'bg-white shadow-sm':isSearchSlideVisible, 'bg-transparent': !isSearchSlideVisible}" class="h-14 w-14 rounded-xl">
+      <i class="bi bi-search text-primary text-2xl"></i>
+    </button>
+
+    <button class="w-14 h-14 border-2 border-primary border-dotted flex items-center justify-center text-4xl text-primary rounded-2xl">
+      +
+    </button>
+
+    <button>
+      <i class="bi bi-menu-button-wide text-primary text-3xl"></i>
+    </button>
+    <button>
+      <i class="bi bi-globe text-primary text-3xl"></i>
+    </button>
+  </div>
+  <app-search-slide *ngIf="isSearchSlideVisible" class="fixed left-36 h-15/16"></app-search-slide>
+</nav>

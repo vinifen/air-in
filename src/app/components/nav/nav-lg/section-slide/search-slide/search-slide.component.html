@@ -1,0 +1,10 @@
+<div class="w-60 h-full bg-white-50 rounded-tr-xl rounded-br-xl grid grid-rows-6">
+  <div class="row-start-3 flex justify-center items-center">
+    <div class="shadow-sm flex items-center justify-center bg-white mr-3 rounded-2xl py-4 h-14">
+      <input (ngModelChange)="saveInputValue($event)" [(ngModel)]="inputValue"  type="text" placeholder="Search your citys" class=" focus:outline-primary w-full mx-2 rounded-lg border-2 border-gray-300 shadow-inner">
+    </div>
+  </div>
+  <div class="row-start-4 flex justify-center items-center">
+    <p>result: {{inputValue}}</p>
+  </div>
+</div>
