@@ -1,0 +1,11 @@
+<nav class="h-screen flex items-center w-32">
+  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-center w-full" [ngClass]="{'rounded-xl': !isSlideVisible, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': isSlideVisible}">
+    <app-site-title></app-site-title>
+    <app-profile-nav (click)="isSlideVisible = !isSlideVisible"></app-profile-nav>
+    <app-search-nav (click)="isSlideVisible = !isSlideVisible"></app-search-nav>
+    <app-new-city (click)="isSlideVisible = !isSlideVisible"></app-new-city>
+    <app-config-nav (click)="isSlideVisible = !isSlideVisible"></app-config-nav>
+    <app-credits (click)="isSlideVisible = !isSlideVisible"></app-credits>
+  </div>
+  <app-sidenav-slide [dynamicComponent]="dynamicComponent" *ngIf="isSlideVisible" class="fixed left-36 h-15/16"></app-sidenav-slide>
+</nav>
