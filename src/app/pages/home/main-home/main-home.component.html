@@ -1,0 +1,21 @@
+<div class="flex flex-col justify-center items-center w-full h-screen">
+  <div class="h-15/16  w-full rounded-xl flex flex-col">
+    <div class="h-9/10">
+      <div *ngIf="weatherData">
+        <h1>Clima em {{ weatherData.name }}</h1>
+        <p>Temperatura: {{ weatherData.main.temp }}°C</p>
+        <p>Descrição: {{ weatherData.weather[0].description }}</p>
+        <p>Humidade: {{ weatherData.main.humidity }}%</p>
+      </div>
+      
+      <div *ngIf="!weatherData">
+        <p>Carregando dados...</p>
+      </div>
+    </div>
+    <div class="h-1/10 flex justify-center items-end">
+      <div class="h-2/3  bg-white-50 flex justify-center items-center px-5 rounded-2xl">
+        Today
+      </div>
+    <div>
+  </div>
+</div>

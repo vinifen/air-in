@@ -1,0 +1,8 @@
+<div 
+  class="w-60 h-full bg-white-50 rounded-tr-xl rounded-br-xl" 
+  [ngClass]="{'grid grid-rows-6': activeSlide === 'search-bar'}"
+>
+  <div [ngClass]="{'row-start-3': activeSlide === 'search-bar'}" class="flex items-center justify-center">
+    <ng-container *ngComponentOutlet="getComponent()"></ng-container>
+  <div>
+</div>
