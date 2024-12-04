@@ -1,0 +1,507 @@
+{
+  "weather": [
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 25.48,
+        "feels_like": 26.07,
+        "temp_min": 22.95,
+        "temp_max": 25.92,
+        "pressure": 1007,
+        "humidity": 76,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733086569,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 25.48,
+        "feels_like": 26.07,
+        "temp_min": 22.95,
+        "temp_max": 25.92,
+        "pressure": 1007,
+        "humidity": 76,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733086569,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 25.48,
+        "feels_like": 26.07,
+        "temp_min": 22.95,
+        "temp_max": 25.92,
+        "pressure": 1007,
+        "humidity": 76,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733086569,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": "860c",
+      "source": {
+        "source": {
+          "source": {}
+        }
+      }
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087182,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087182,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    },
+    {
+      "id": 6322752,
+      "coord": {
+        "lon": -49.2908,
+        "lat": -25.504
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 24.93,
+        "feels_like": 25.44,
+        "temp_min": 22.95,
+        "temp_max": 25.37,
+        "pressure": 1007,
+        "humidity": 75,
+        "sea_level": 1007,
+        "grnd_level": 908
+      },
+      "visibility": 10000,
+      "wind": {
+        "speed": 3.6,
+        "deg": 100
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1733087353,
+      "sys": {
+        "type": 2,
+        "id": 67576,
+        "country": "BR",
+        "sunrise": 1733041099,
+        "sunset": 1733090089
+      },
+      "timezone": -10800,
+      "name": "Curitiba",
+      "cod": 200
+    }
+  ]
+}

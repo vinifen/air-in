@@ -1,0 +1,41 @@
+<nav class="h-screen flex items-center w-32">
+  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-center w-full" 
+       [ngClass]="{'rounded-xl': !activeSlide, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': activeSlide}">
+    
+    <app-site-title></app-site-title>
+
+    <button (click)="toggleSlide('account')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'account', 'bg-transparent': activeSlide !== 'account'}"
+            class="h-14 w-14 rounded-xl">
+      <i class="bi bi-person-fill text-primary text-3xl"></i>
+    </button>
+
+    <button (click)="toggleSlide('search-bar')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'search-bar', 'bg-transparent': activeSlide !== 'search-bar'}"
+            class="h-14 w-14 rounded-xl">
+            <i class="bi bi-search text-primary text-2xl"></i>
+    </button>
+
+    <button (click)="toggleSlide('new')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'new', 'bg-transparent': activeSlide !== 'new'}"
+            class="w-14 h-14 border-2 border-primary border-dotted flex items-center justify-center text-4xl text-primary rounded-2xl">
+      +
+    </button>
+
+    <button (click)="toggleSlide('settings')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'settings', 'bg-transparent': activeSlide !== 'settings'}"
+            class="h-14 w-14 rounded-xl">
+      <i class="bi bi-menu-button-wide text-primary text-3xl"></i>
+    </button>
+
+    <button (click)="toggleSlide('credits')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'credits', 'bg-transparent': activeSlide !== 'credits'}"
+            class="h-14 w-14 rounded-xl">
+      <i class="bi bi-globe text-primary text-3xl"></i>
+    </button>
+  </div>
+
+  <app-slide-sidenav [activeSlide]="activeSlide" *ngIf="activeSlide" class="fixed left-36 h-15/16"></app-slide-sidenav>
+
+</nav>
+
