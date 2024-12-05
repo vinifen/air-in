@@ -1,0 +1,36 @@
+<div class="h-full w-full grid grid-rows-6">
+  <div class="row-start-2 flex items-center justify-center">
+    <h1 class="text-center">
+      <p>Não é permitido os caracteres</p> 
+      <p>/ * -_</p>
+    </h1>
+  </div>
+  <form (ngSubmit)="onSubmit()" class="row-start-3 shadow-sm flex flex-col items-center justify-around rounded-2xl p-4 w-full bg-white" #form="ngForm">
+    <input 
+      (ngModelChange)="saveInputValue($event)"
+      [(ngModel)]="inputValue"  
+      type="text" 
+      name="search-bar"
+      placeholder="Search your citys" 
+      [pattern]="'^[^/*-_]+$'"
+      class="focus:outline-primary rounded-lg border-2 border-gray-300 shadow-inner w-full"
+    >
+    <button 
+      type="submit" 
+      class="bg-gray-200 border-2 border-gray-300 rounded-lg w-full"
+      [disabled]="form.invalid || isSubmit"
+    >Submit</button>
+  </form>
+  <div class="row-start-4 flex items-center justify-center">
+    <div class="break-all text-center">
+      {{formResult | uppercase }}
+    </div>
+  </div>
+  <div class="row-start-5">
+    <div *ngFor="let exemplo of exemplos">
+      <div *ngFor="let ola of exemplo.ola; let index = index">
+        {{ola}}
+      </div>
+    </div>
+  </div>
+</div>
