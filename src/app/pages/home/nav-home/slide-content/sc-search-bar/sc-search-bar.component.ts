@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SearchBarNavValueService } from '../../search-bar-nav-value.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sc-search-bar',
@@ -9,26 +11,30 @@ import { CommonModule } from '@angular/common';
   templateUrl: './sc-search-bar.component.html',
   styleUrl: './sc-search-bar.component.css'
 })
-export class ScSearchBarComponent {
+export class ScSearchBarComponent implements OnInit {
   inputValue: string = '';
   formResult: string = 'Result here';
   inputValidation: boolean = false;
   isSubmit: boolean = false;
+  searchValueService$: SearchBarNavValueService;
+
+  constructor(service: SearchBarNavValueService){
+    this.searchValueService$ = service;
+  }
 
   ngOnInit() {
-    const savedValue = sessionStorage.getItem('searchInput');
-    if (savedValue) {
-      this.inputValue = savedValue; 
-    }
+    this.searchValueService$.getSearchValue().subscribe({
+      next: (value) => {
+        this.inputValue = value;
+      }
+    });
   }
 
   saveInputValue(value: string) {
     if(this.inputValue.match(/^[^/*-_]+$/)){
       this.inputValidation = true;
     }
-
-    this.inputValue = value;
-    sessionStorage.setItem('searchInput', this.inputValue);
+    this.searchValueService$.setSearchValue(value);
   }
 
   onSubmit(){

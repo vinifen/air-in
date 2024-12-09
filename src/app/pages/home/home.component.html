@@ -1,4 +1,7 @@
-<div class="flex justify-between items-center bg-cover bg-center h-screen w-screen" style="background-image: url('/background-air-in.png');">
-  <app-sidenav-home-lg class="h-screen mx-4"></app-sidenav-home-lg>
-  <app-main-home class="w-full mx-4 flex"></app-main-home>
+<div class="grid grid-rows-[auto_1fr_auto] lg:flex lg:justify-between lg:items-center bg-cover bg-center h-screen w-screen" style="background-image: url('/background-air-in.png');">
+  <app-sidenav-home-lg class="lg:h-screen lg:mx-4 hidden lg:block"></app-sidenav-home-lg>
+
+  <app-nav-top-home-sm class="row-start-1 lg:hidden"></app-nav-top-home-sm>
+  <app-main-home class="row-start-2 lg:w-full lg:mx-4 lg:flex h-full"></app-main-home>
+  <app-nav-bottom-home-sm class="row-start-3 lg:hidden"></app-nav-bottom-home-sm>
 </div>

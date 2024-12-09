@@ -1,1 +1,21 @@
-<p>nav-top-home-sm works!</p>
+<nav>
+  <div>
+    <button 
+      (click)="toggleSlide('account')" 
+      [ngClass]="{'bg-white shadow-sm': activeSlide === 'account', 'bg-transparent': activeSlide !== 'account'}"
+      class="h-14 w-14 rounded-xl"
+    >
+      <i class="bi bi-person-fill text-primary text-3xl"></i>
+    </button>
+    <app-site-title></app-site-title>
+    <button 
+      (click)="toggleSlide('search-bar')" 
+      [ngClass]="{'bg-white shadow-sm': activeSlide === 'search-bar', 'bg-transparent': activeSlide !== 'search-bar'}"
+      class="h-14 w-14 rounded-xl"
+    >
+      <i class="bi bi-search text-primary text-2xl"></i>
+    </button>
+  </div>
+  <app-slide-nav-top [activeSlide]="activeSlide" *ngIf="activeSlide"></app-slide-nav-top>
+
+</nav>
