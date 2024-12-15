@@ -1,8 +1,10 @@
-<nav class="h-screen flex items-center w-32">
-  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-center w-full" 
-       [ngClass]="{'rounded-xl': !activeSlide, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': activeSlide}">
-    
-    <app-site-title></app-site-title>
+<nav class="h-screen flex items-center">
+  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-start w-32" 
+    [ngClass]="{'rounded-xl': !activeSlide, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': activeSlide}"
+  >
+    <div class="w-full h-full flex items-center justify-center">
+      <app-site-title></app-site-title>
+    </div>
 
     <button (click)="toggleSlide('account')" 
             [ngClass]="{'bg-white shadow-sm': activeSlide === 'account', 'bg-transparent': activeSlide !== 'account'}"
@@ -35,7 +37,7 @@
     </button>
   </div>
 
-  <app-slide-sidenav [activeSlide]="activeSlide" *ngIf="activeSlide" class="fixed left-36 h-15/16"></app-slide-sidenav>
+  <app-slide-sidenav [activeSlide]="activeSlide" *ngIf="activeSlide" class="h-15/16"></app-slide-sidenav>
 
 </nav>
 

@@ -1,21 +1,48 @@
-<nav>
-  <div>
-    <button 
-      (click)="toggleSlide('account')" 
-      [ngClass]="{'bg-white shadow-sm': activeSlide === 'account', 'bg-transparent': activeSlide !== 'account'}"
-      class="h-14 w-14 rounded-xl"
-    >
-      <i class="bi bi-person-fill text-primary text-3xl"></i>
-    </button>
-    <app-site-title></app-site-title>
-    <button 
-      (click)="toggleSlide('search-bar')" 
-      [ngClass]="{'bg-white shadow-sm': activeSlide === 'search-bar', 'bg-transparent': activeSlide !== 'search-bar'}"
-      class="h-14 w-14 rounded-xl"
-    >
-      <i class="bi bi-search text-primary text-2xl"></i>
-    </button>
-  </div>
-  <app-slide-nav-top [activeSlide]="activeSlide" *ngIf="activeSlide"></app-slide-nav-top>
+<nav class="flex items-center justify-center flex-wrap">
+  <div class="bg-white-50 h-14 w-full mx-1 mt-4 rounded-2xl md:h-16 md:w-15/16">
+    <div class="h-full flex justify-between items-center mx-2 sm:mx-4">
+      <div
+        class="grid grid-cols-[auto_1fr] h-full"
+        [ngClass]="{'w-full mr-1 sm:w-3/6': activeSlide === 'account', 'w-auto': activeSlide !== 'account'}"
+      >
+        <div class="flex items-center col-start-1">
+          <button 
+            (click)="toggleSlide('account')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'account', 'bg-transparent': activeSlide !== 'account'}"
+            class="h-10 w-10 rounded-xl"
+          >
+            <i class="bi bi-person-fill text-primary text-3xl"></i>
+          </button>
+        </div>
+        <app-sc-account 
+          class="h-full col-start-2 w-full"
+          [ngClass]="{'hidden': activeSlide !== 'account', 'block': activeSlide === 'account'}"
+        ></app-sc-account>
+      </div>
 
+      <app-site-title [ngClass]="{'hidden': activeSlide, 'block': !activeSlide}"></app-site-title>
+     
+
+      <div 
+        class="grid grid-cols-[1fr_auto] h-full"
+        [ngClass]="{'w-4/5 sm:w-3/6': activeSlide === 'search-bar', 'w-auto': activeSlide !== 'search-bar'}"
+      >
+        <app-sc-search-bar 
+          [ngClass]="{'hidden': activeSlide !== 'search-bar', 'block': activeSlide === 'search-bar'}" 
+          class="h-full col-start-1 w-full"
+        ></app-sc-search-bar>
+        <div class="flex items-center col-start-2">
+          <button
+            (click)="toggleSlide('search-bar')" 
+            [ngClass]="{'bg-white shadow-sm': activeSlide === 'search-bar', 'bg-transparent': activeSlide !== 'search-bar'}"
+            class="h-10 w-10 rounded-xl flex items-center justify-center col-start-2"
+          >
+            <i class="bi bi-search text-primary text-2xl"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <app-sc-new [ngClass]="{'hidden': activeSlide !== 'new', 'block': activeSlide === 'new'}" ></app-sc-new>
 </nav>

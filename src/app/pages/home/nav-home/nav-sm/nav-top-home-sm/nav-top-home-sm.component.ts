@@ -1,30 +1,31 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { SlideNavTopComponent } from '../slide-nav-top/slide-nav-top.component';
+import { Component, OnInit } from '@angular/core';
 import { SiteTitleComponent } from '../../../../../shared/site-title/site-title.component';
 import { ActiveSlideNavService } from '../../active-slide-nav.service';
 import { CommonModule } from '@angular/common';
+import { ScSearchBarComponent } from '../../slide-content/sc-search-bar/sc-search-bar.component';
+import { ScAccountComponent } from '../../slide-content/sc-account/sc-account.component';
+import { ScNewComponent } from '../../slide-content/sc-new/sc-new.component';
 
 @Component({
   selector: 'app-nav-top-home-sm',
   standalone: true,
-  imports: [SiteTitleComponent, SlideNavTopComponent, CommonModule],
+  imports: [SiteTitleComponent, CommonModule, ScSearchBarComponent, ScAccountComponent, ScNewComponent],
   templateUrl: './nav-top-home-sm.component.html',
   styleUrl: './nav-top-home-sm.component.css'
 })
-export class NavTopHomeSmComponent {
-  @Output() activeSlideChange = new EventEmitter<string | null>();
-
+export class NavTopHomeSmComponent implements OnInit {
   activeSlide: string | null = null;
-  activeSlideService: ActiveSlideNavService;
 
-  constructor(service: ActiveSlideNavService){
-    this.activeSlideService = service;
-    this.activeSlide = this.activeSlideService.getActiveSlide();
+  constructor(private activeSlideService: ActiveSlideNavService) {}
+
+  ngOnInit(): void {
+    this.activeSlideService.getActiveSlide().subscribe((content) => {
+      this.activeSlide = content;
+    });
   }
 
-  toggleSlide(slide: string): void {
-    this.activeSlideService.setActiveSlide(this.activeSlide === slide ? null : slide);
-    this.activeSlide = this.activeSlideService.getActiveSlide();
-    this.activeSlideChange.emit(this.activeSlide); 
+  toggleSlide(newContent: string): void {
+    const newSlideContent = this.activeSlide === newContent ? null : newContent;
+    this.activeSlideService.setActiveSlide(newSlideContent);
   }
 }

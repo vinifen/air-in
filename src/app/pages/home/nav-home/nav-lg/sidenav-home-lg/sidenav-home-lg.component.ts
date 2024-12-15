@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SlideSidenavComponent } from '../slide-sidenav/slide-sidenav.component';
 import { SiteTitleComponent } from '../../../../../shared/site-title/site-title.component';
 import { CommonModule } from '@angular/common';
@@ -11,20 +11,22 @@ import { ActiveSlideNavService } from '../../active-slide-nav.service';
   templateUrl: './sidenav-home-lg.component.html',
   styleUrl: './sidenav-home-lg.component.css'
 })
-export class SidenavHomeLgComponent {
+export class SidenavHomeLgComponent implements OnInit {
   @Output() activeSlideChange = new EventEmitter<string | null>();
 
   activeSlide: string | null = null;
-  activeSlideService: ActiveSlideNavService;
+  
 
-  constructor(service: ActiveSlideNavService){
-    this.activeSlideService = service;
-    this.activeSlide = this.activeSlideService.getActiveSlide();
+  constructor(private activeSlideService$: ActiveSlideNavService){}
+
+  ngOnInit(): void {
+    this.activeSlideService$.getActiveSlide().subscribe((content) =>{
+      this.activeSlide = content;
+      this.activeSlideChange.emit(this.activeSlide); 
+    })
   }
 
-  toggleSlide(slide: string): void {
-    this.activeSlideService.setActiveSlide(this.activeSlide === slide ? null : slide);
-    this.activeSlide = this.activeSlideService.getActiveSlide();
-    this.activeSlideChange.emit(this.activeSlide); 
+  toggleSlide(newContent: string): void {
+    this.activeSlideService$.setActiveSlide(this.activeSlide === newContent ? null : newContent);
   }
 }

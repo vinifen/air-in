@@ -16,14 +16,14 @@ export class ScSearchBarComponent implements OnInit {
   formResult: string = 'Result here';
   inputValidation: boolean = false;
   isSubmit: boolean = false;
-  searchValueService$: SearchBarNavValueService;
+  searchValue$: SearchBarNavValueService;
 
   constructor(service: SearchBarNavValueService){
-    this.searchValueService$ = service;
+    this.searchValue$ = service;
   }
 
   ngOnInit() {
-    this.searchValueService$.getSearchValue().subscribe({
+    this.searchValue$.getSearchValue().subscribe({
       next: (value) => {
         this.inputValue = value;
       }
@@ -34,7 +34,7 @@ export class ScSearchBarComponent implements OnInit {
     if(this.inputValue.match(/^[^/*-_]+$/)){
       this.inputValidation = true;
     }
-    this.searchValueService$.setSearchValue(value);
+    this.searchValue$.setSearchValue(value);
   }
 
   onSubmit(){

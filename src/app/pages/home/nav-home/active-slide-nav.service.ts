@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActiveSlideNavService {
-  activeSlide: string | null = null;
+  private activeSlide$ = new BehaviorSubject<string | null>('');
 
   setActiveSlide(content: string | null){
-   
-    this.activeSlide = content;
-    console.log(this.activeSlide, content);
+    this.activeSlide$.next(content);
+    console.log(this.activeSlide$, content);
   }
 
   getActiveSlide(){
-    return this.activeSlide;
+    return this.activeSlide$.asObservable();
   }
 }

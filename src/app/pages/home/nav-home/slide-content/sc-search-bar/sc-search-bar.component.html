@@ -1,29 +1,15 @@
-<div class="h-full w-full grid grid-rows-6">
-  <div class="row-start-2 flex items-center justify-center">
-    <h1 class="text-center">
-      <p>Não é permitido os caracteres</p> 
-      <p>/ * -_</p>
-    </h1>
-  </div>
-  <form (ngSubmit)="onSubmit()" class="row-start-3 shadow-sm flex flex-col items-center justify-around rounded-2xl p-4 w-full bg-white" #form="ngForm">
-    <input 
-      (ngModelChange)="saveInputValue($event)"
-      [(ngModel)]="inputValue"  
-      type="text" 
-      name="search-bar"
-      placeholder="Search your citys" 
-      [pattern]="'^[^/*-_]+$'"
-      class="focus:outline-primary rounded-lg border-2 border-gray-300 shadow-inner w-full"
-    >
-    <button 
-      type="submit" 
-      class="bg-gray-200 border-2 border-gray-300 rounded-lg w-full"
-      [disabled]="form.invalid || isSubmit"
-    >Submit</button>
-  </form>
-  <div class="row-start-4 flex items-center justify-center">
-    <div class="break-all text-center">
-      {{formResult}}
+<div class="h-full w-full flex items-center justify-center lg:w-60 lg:grid lg:grid-rows-6">
+  <div class="flex items-start justify-center w-full lg:row-start-3 lg:h-full">
+    <div class="bg-white mr-2 shadow-sm h-10 flex items-center rounded-xl justify-center w-full lg:h-14">
+      <input 
+        (ngModelChange)="saveInputValue($event)"
+        [(ngModel)]="inputValue"  
+        type="text" 
+        name="search-bar"
+        placeholder="Search your citys" 
+        type="text" 
+        class="focus:outline-primary rounded-xl mx-3 border-2 bg-gray-50 border-gray-300 w-full lg:mx-2 "
+      >
     </div>
   </div>
 </div>
