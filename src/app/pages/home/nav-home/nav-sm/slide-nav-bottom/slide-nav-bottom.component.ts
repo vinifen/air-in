@@ -1,14 +1,14 @@
 import { NgComponentOutlet, CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ScAccountComponent } from '../../slide-content/sc-account/sc-account.component';
-import { ScSearchBarComponent } from '../../slide-content/sc-search-bar/sc-search-bar.component';
+import { ScSettingsComponent } from '../../slide-content/sc-settings/sc-settings.component';
+import { ScCreditsComponent } from '../../slide-content/sc-credits/sc-credits.component';
 
 @Component({
   selector: 'app-slide-nav-bottom',
   standalone: true,
   imports: [
-    ScAccountComponent,
-    ScSearchBarComponent, 
+    ScSettingsComponent,
+    ScCreditsComponent,
     NgComponentOutlet,
     CommonModule,
   ],
@@ -22,10 +22,10 @@ export class SlideNavBottomComponent {
   }
   getComponent(){
     switch(this.activeSlide){
-      case 'account':
-        return ScAccountComponent;
-      case 'search-bar':
-        return ScSearchBarComponent;
+      case 'settings':
+        return ScSettingsComponent;
+      case 'credits':
+        return ScCreditsComponent;
       default:
         return null;
     }

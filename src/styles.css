@@ -10,7 +10,16 @@ h1, input {
 }
 
 input {
-  text-indent: 0.5rem; /* Ou o valor que você preferir */
+  text-indent: 0.5rem;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 

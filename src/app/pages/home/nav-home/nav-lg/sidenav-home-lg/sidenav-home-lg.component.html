@@ -1,6 +1,6 @@
 <nav class="h-screen flex items-center">
-  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-start w-32" 
-    [ngClass]="{'rounded-xl': !activeSlide, 'rounded-tr-none rounded-br-none rounded-tl-xl rounded-bl-xl': activeSlide}"
+  <div class="bg-white-50 h-15/16 grid grid-rows-6 justify-items-center items-start w-28" 
+    [ngClass]="{'rounded-2xl': !activeSlide, 'rounded-tr-none rounded-br-none rounded-tl-2xl rounded-bl-2xl': activeSlide}"
   >
     <div class="w-full h-full flex items-center justify-center">
       <app-site-title></app-site-title>
@@ -21,12 +21,12 @@
     <button (click)="toggleSlide('new')" 
             [ngClass]="{'bg-white shadow-sm': activeSlide === 'new', 'bg-transparent': activeSlide !== 'new'}"
             class="w-14 h-14 border-2 border-primary border-dotted flex items-center justify-center text-4xl text-primary rounded-2xl">
-      +
+      <i class="bi bi-plus text-primary text-3xl"></i>
     </button>
 
     <button (click)="toggleSlide('settings')" 
             [ngClass]="{'bg-white shadow-sm': activeSlide === 'settings', 'bg-transparent': activeSlide !== 'settings'}"
-            class="h-14 w-14 rounded-xl">
+            class="h-14 w-14 rounded-xl flex items-center justify-center">
       <i class="bi bi-menu-button-wide text-primary text-3xl"></i>
     </button>
 

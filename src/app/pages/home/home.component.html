@@ -3,11 +3,13 @@
   style="background-image: url('/background-air-in.png');"
 >
     <app-sidenav-home-lg 
-      class="hidden lg:block lg:h-screen lg:mx-4 lg:col-start-1"
+      *ngIf="isLgScreen" 
+      class="lg:h-screen lg:ml-4 lg:col-start-1"
     ></app-sidenav-home-lg>
     
     <app-nav-top-home-sm 
-      class="row-start-1 lg:hidden"
+      *ngIf="!isLgScreen" 
+      class="row-start-1"
     ></app-nav-top-home-sm>
     
     <app-main-home 
@@ -15,6 +17,7 @@
     ></app-main-home>
     
     <app-nav-bottom-home-sm 
-      class="row-start-3 lg:hidden"
+      *ngIf="!isLgScreen" 
+      class="row-start-3"
     ></app-nav-bottom-home-sm>
 </div>

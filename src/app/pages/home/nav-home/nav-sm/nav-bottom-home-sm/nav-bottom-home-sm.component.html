@@ -1,8 +1,11 @@
 <nav class="flex items-center justify-center flex-wrap">
-  <app-slide-nav-bottom [activeSlide]="activeSlide" *ngIf="activeSlide" class="w-15/16"></app-slide-nav-bottom>
+  <app-slide-nav-bottom [activeSlide]="activeSlide" *ngIf="activeSlide" class="w-full sm:w-15/16"></app-slide-nav-bottom>
   <div 
-    class="bg-white-50 h-14 w-full mx-1 mb-3 rounded-xl md:h-16 md:w-15/16"
-    [ngClass]="{'rounded-xl': !activeSlide, 'rounded-tl-none rounded-tr-none rounded-br-xl rounded-bl-xl': activeSlide}"
+    class="bg-white-50 h-14 w-full sm:mb-3 sm:rounded-xl sm:h-16 sm:w-15/16"
+    [ngClass]="{
+      'rounded-tl-none rounded-tr-none rounded-br-xl rounded-bl-xl': activeSlide === 'credits' || activeSlide === 'settings',
+      'rounded-xl': activeSlide !== 'credits' && activeSlide !== 'settings'
+    }"
   >
     <div class="h-full flex justify-between items-center mx-2 sm:mx-4">
       <button 
@@ -16,9 +19,9 @@
       <button 
         (click)="toggleSlide('new')" 
         [ngClass]="{'bg-white shadow-sm': activeSlide === 'new', 'bg-transparent': activeSlide !== 'new'}"
-        class="w-10 h-10 border-2 border-primary border-dotted flex items-center justify-center text-3xl text-primary rounded-2xl"
+        class="w-12 h-12 border-2 border-primary border-dotted flex items-center justify-center text-3xl text-primary rounded-2xl"
       >
-        +
+        <i class="bi bi-plus"></i>
       </button>
       <button 
         (click)="toggleSlide('credits')" 

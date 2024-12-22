@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-sc-new',
   standalone: true,
   imports: [],
   templateUrl: './sc-new.component.html',
-  styleUrl: './sc-new.component.css'
+  styleUrls: ['./sc-new.component.css']
 })
-export class ScNewComponent {
+export class ScNewComponent implements AfterViewChecked {
+  @ViewChild('newInput') searchInput!: ElementRef;
 
+  ngAfterViewChecked(): void {
+    this.searchInput.nativeElement.focus();
+  }
 }
