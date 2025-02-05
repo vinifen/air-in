@@ -1,0 +1,57 @@
+<nav class="flex items-center justify-center flex-wrap">
+
+  <div 
+    [ngClass]="{
+      'rounded-bl-none rounded-br-none rounded-tr-2xl rounded-tl-2xl': activeSlide$ === 'account' || activeSlide$ === 'new',
+      'rounded-2xl shadow-lg': activeSlide$ !== 'account' && activeSlide$ !== 'new'
+    }"
+  
+    class="bg-white-50 h-14 w-full mt-1 flex items-center justify-center md:h-16">
+    <div 
+      class="flex justify-between items-center mx-2 h-full w-11/12 sm:w-5/6"
+    >
+      <div 
+        class="grid grid-cols-[auto_1fr] gap-2 h-full"
+        [ngClass]="{' w-full xs:w-10/12 md:w-8/12': activeSlide$ === 'search-bar', 'w-auto': activeSlide$ !== 'search-bar'}"
+      >
+       
+        <div class="flex items-center col-start-1">
+          <button
+            (click)="toggleSlide('search-bar')" 
+            [ngClass]="{'bg-white-50 shadow-sm': activeSlide$ === 'search-bar', 'bg-transparent': activeSlide$ !== 'search-bar'}"
+            class="h-10 w-10 rounded-xl flex items-center justify-center col-start-2"
+          >
+            <i class="bi bi-search text-primary text-xl md:text-2xl"></i>
+          </button>
+        </div>
+        <app-sc-search-bar 
+          [ngClass]="{'hidden': activeSlide$ !== 'search-bar', 'block': activeSlide$ === 'search-bar'}" 
+          class="h-full col-start-2 w-full"
+        ></app-sc-search-bar>
+      </div>
+      
+
+      <app-site-title [ngClass]="{
+        'hidden': activeSlide$ === 'new' || activeSlide$ === 'search-bar' || activeSlide$ === 'account',
+        'block': activeSlide$ !== 'new' && activeSlide$ !== 'account' && activeSlide$ !== 'search-bar'
+      }"></app-site-title>      
+     
+      <h1 *ngIf="(titleContent$ && activeSlide$ === 'account') || titleContent$ && activeSlide$ === 'new'" class=" text-primary">{{titleContent$}}</h1>
+      <h1 *ngIf="activeSlide$ === 'account' && titleContent$ === ''" class=" text-primary">Hello {{userData$?.username}}</h1>
+
+      <button 
+        routerLink="/authentication"
+        (click)="toggleSlide('account')" 
+        [ngClass]="{'bg-white-50 shadow-sm': activeSlide$ === 'account', 'bg-transparent': activeSlide$ !== 'account'}"
+        class="h-10 w-10 rounded-xl"
+      >
+        <i class="bi bi-person-fill text-primary text-2xl md:text-3xl"></i>
+      </button>
+      
+
+    </div>
+
+
+  </div>
+  <app-slide-nav-top [activeSlide$]="activeSlide$" *ngIf="activeSlide$" class="w-full"></app-slide-nav-top>
+</nav>

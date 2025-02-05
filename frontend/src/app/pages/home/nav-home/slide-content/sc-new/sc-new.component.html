@@ -1,0 +1,66 @@
+<div class="flex w-full h-auto items-center justify-center lg:hidden">
+  <div class="flex items-center justify-center h-full w-full mb-3 mx-2 bg-white-50 rounded-xl shadow-sm sm:w-5/6">      
+    <form 
+      (ngSubmit)="onSubmit()" 
+      class="w-4/6 h-auto flex flex-col justify-center items-start mb-2 mt-3">
+      
+      <input 
+        #newInput
+        [(ngModel)]="inputNewCity"
+        name="new"
+        placeholder="Search for add new citys" 
+        type="text" 
+        id="new"
+        class="focus:outline-primary text-sm rounded-xl mb-3 bg-gray-50 border-2 h-9 border-gray-500 border-opacity-20 w-full md:h-10">
+
+      <div *ngIf="successMessage" class="text-green-500 text-xs mb-1">
+        {{ successMessage }}
+      </div>
+  
+      <div *ngIf="errorMessage" class="text-red-500 text-xs mb-1">
+        {{ errorMessage }}
+      </div>
+      <button 
+        type="submit"
+        class="bg-gray-50 border-2 border-gray-500 border-opacity-20 mb-2 mt-1 rounded-xl h-9 flex w-full items-center justify-center md:h-10">
+        <p class="text-xs text-primary">Submit</p>
+      </button>
+    </form>
+
+  </div>    
+</div>
+
+<div class="hidden lg:flex lg:justify-center lg:items-center lg:h-full lg:w-full">
+  <div class="lg:w-80 lg:h-3/6 lg:flex lg:items-center lg:justify-center lg:flex-col">
+    <form 
+      (ngSubmit)="onSubmit()" 
+      class="bg-white-50 flex flex-col shadow-sm h-36 justify-around items-center w-15/16 rounded-2xl"
+    >
+      <div class="flex items-center h-7 rounded-xl justify-center w-full lg:ml-0 lg:h-auto lg:mt-2">
+        <input 
+          #newInputLg
+          [(ngModel)]="inputNewCity"
+          name="new"
+          placeholder="Search for add new citys" 
+          type="text" 
+          id="new" 
+          class="focus:outline-primary text-sm h-full w-full rounded-xl border-2 bg-gray-50 border-gray-300 lg:mx-2 lg:h-9"
+        >
+      </div>
+      
+      <div *ngIf="successMessage" class="text-green-500 text-sm mb-4">
+        {{ successMessage }}
+      </div>
+  
+      <div *ngIf="errorMessage" class="text-red-500 text-sm mb-4">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="w-full h-auto flex justify-center items-center lg:mb-3">
+        <div class="h-10 w-full bg-gray-50 text-sm border-2 border-gray-500 border-opacity-20 rounded-xl flex justify-center items-center text-primary lg:mx-2">
+          Add
+        </div>
+      </button>
+    </form>
+  </div>
+</div>

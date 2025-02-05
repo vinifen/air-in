@@ -1,0 +1,55 @@
+
+<div class="flex w-full h-auto items-center justify-center lg:hidden">
+  <div class="flex flex-col items-center justify-center h-full w-full m-2 bg-white-50 rounded-xl shadow-sm sm:w-5/6">  
+    <h1 class="flex items-center justify-center w-full h-6 text-primary">Select the cities you want to delete and click down</h1>  
+
+    <div class="grid grid-cols-3 w-full h-12 items-center md:h-13">
+      <div class="flex items-center justify-center">
+        <button 
+          (click)="toggleDeleteMode()"
+          routerLink="/"
+          class="flex items-center justify-center h-9"
+        >
+          <i class="bi bi-arrow-left text-primary text-base"></i>
+        </button>
+      </div>
+      <div class="flex items-center justify-center">
+        <button 
+          (click)="submitDeleteCities()"
+          class="bg-gray-50 text-sm shadow-md ring-2 ring-red-200 rounded-xl h-9 w-36 flex items-center justify-center md:w-48 md:h-10"
+        >
+          <i class="bi bi-trash text-xl text-primary"></i>            
+        </button>
+      </div>
+      
+      <div></div>
+    </div>            
+  </div>    
+</div>
+
+
+
+
+<div class="hidden bg-white-50 w-15/16 h-52 rounded-2xl shadow-sm lg:flex justify-center items-center">
+  <div class="w-5/6 h-full flex flex-col justify-center items-center">
+    <div class="flex justify-center mt-3">
+      <button 
+        (click)="toggleDeleteMode()"
+        routerLink="/"
+        class="flex items-center justify-center w-14 h-9">
+        <i class="bi bi-arrow-left w-full flex items-center justify-center text-primary text-base"></i>
+      </button>
+      <h1 class="flex items-center justify-center w-full h-10 text-primary ">Select the cities you want to delete and click down</h1>
+    </div>
+    <div class="h-full flex items-center w-full">
+      <button 
+        (click)="submitDeleteCities()" 
+        class="bg-gray-50 text-sm shadow-md ring-2 ring-red-200 rounded-xl h-10 flex items-center justify-center w-full"
+      >
+        <i class="bi bi-trash text-xl  text-primary"></i> 
+      </button>
+    </div>
+  </div>
+</div>
+  
+

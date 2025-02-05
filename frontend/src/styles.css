@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, input {
+  font-family: "Jacques Francois", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input {
+  text-indent: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #a2a2a2 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cccccc; 
+  border-radius: 10px; 
+}
+
+@media screen and (max-height: 550px) {
+  .sm-h-input {
+    height: 2rem !important;
+    margin: 0 !important;
+  }
+  .sm-m-0{
+    margin: 0;
+  }
+
+  .sm-h-login {
+    height: 70% !important;
+  }
+
+  .sm-h-register {
+    height: 88% !important;
+  }
+}

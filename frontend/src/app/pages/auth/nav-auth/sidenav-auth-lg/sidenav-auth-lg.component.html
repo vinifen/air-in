@@ -1,0 +1,35 @@
+<nav class="h-screen flex items-center">
+  <div class="bg-white-50 h-15/16 grid grid-rows-4 justify-items-center items-start w-28 rounded-2xl">
+    <div class="w-full h-full flex items-center justify-center">
+      <app-site-title></app-site-title>
+    </div>
+    
+    <button
+      routerLink="/"
+      class="w-14 rounded-xl h-14"
+    >
+      <i class="bi bi-arrow-left text-primary text-2xl"></i>
+    </button>
+
+    <button 
+      (click)="toggleContent('login')" 
+      class="w-14 rounded-xl h-14"
+      [ngClass]="{'bg-white shadow-sm': activeContent === 'login'}"
+    >
+      <i class="bi bi-person-check-fill text-primary text-2xl"></i>
+      <p class="text-xs">Login</p>
+    </button>
+
+    <button 
+      (click)="toggleContent('register')" 
+      [ngClass]="{'bg-white shadow-sm': activeContent === 'register'}"
+      class="w-14 rounded-xl h-14"
+    >
+      <i class="bi bi-person-plus-fill text-primary text-2xl"></i>
+      <p class="text-xs">Register</p>
+    </button>
+
+  </div>
+
+</nav>
+

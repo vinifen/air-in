@@ -1,0 +1,38 @@
+<div *ngIf="weatherData$" class="flex flex-wrap justify-start items-start w-full"> 
+  <div
+    *ngFor="let ctWtData of renderCardsData; let i = index"
+    class="w-2/4 md:w-3/6 lg:w-1/4 xl:w-1/6 h-44 mb-2"
+    [ngClass]="{
+      'lg:w-2/4': !!activeSlide$,
+      'xl:w-4/12': !!activeSlide$
+    }"
+    (click)="isDeleteCitiesWModeOn$ ? selectCitiesToDelete(ctWtData.content.name) : null"
+  >
+    <div 
+      class="bg-white-50 rounded-2xl h-full m-1 shadow-lg"
+      [ngClass]="{
+        'shadow-lg ring-2 ring-red-200': isDeleteCitiesWModeOn$ && citiesToDelete.includes(ctWtData.content.name)
+      }"
+    >
+      <div 
+        [ngClass]="{'shadow-sm ring-2 rounded-2xl ring-blue-200 ring-opacity-50': isDeleteCitiesWModeOn$}" 
+        class="p-2 flex flex-col justify-around h-full">
+        <div class="flex text-sm text-primary">
+          <p>{{ ctWtData.content.name }}</p>
+          <p>-</p>
+          <p>{{ ctWtData.content.sys.country }}</p>
+        </div>
+
+        <p class="text-lg text-center from-neutral-700 text-primary mb-1">
+          {{ ctWtData.content.weather[0].description }}
+        </p>
+
+        <div class="text-sm text-gray-500">
+          <p>Temp: {{ ctWtData.content.main.temp }}°C</p>
+          <p>Sensation: {{ ctWtData.content.main.feels_like }}°C</p>
+          <p>Wind Speed: {{ ctWtData.content.wind.speed }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

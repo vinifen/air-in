@@ -1,0 +1,35 @@
+<nav class="flex items-center justify-center flex-wrap">
+  <app-slide-nav-bottom [activeSlide$]="activeSlide$" *ngIf="activeSlide$" class="w-full"></app-slide-nav-bottom>
+  <div 
+    class="bg-white-50 h-14 w-full mb-1 flex items-center justify-center rounded-2xl md:h-16"
+    [ngClass]="{
+      'rounded-tl-none rounded-tr-none rounded-br-2xl rounded-bl-2xl': activeSlide$ === 'credits' || activeSlide$ === 'settings',
+      'rounded-2xl shadow-lg': activeSlide$ !== 'credits' && activeSlide$ !== 'settings'
+    }"
+  >
+    <div class="h-full flex justify-between items-center mx-2 w-11/12 md:w-5/6">
+      <button 
+        (click)="toggleSlide('settings')" 
+        [ngClass]="{'bg-white shadow-sm': activeSlide$ === 'settings', 'bg-transparent': activeSlide$ !== 'settings'}"
+        class="h-10 w-10 rounded-2xl"
+      >
+        <i class="bi bi-menu-button-wide text-primary text-xl md:text-2xl"></i>
+      </button>
+      
+      <button 
+        (click)="toggleSlide('new')" 
+        [ngClass]="{'bg-white shadow-sm': activeSlide$ === 'new', 'bg-transparent': activeSlide$ !== 'new'}"
+        class="w-12 h-12 border-2 border-primary border-dotted flex items-center justify-center text-2xl text-primary rounded-2xl"
+      >
+        <i class="bi bi-plus"></i>
+      </button>
+      <button 
+        (click)="toggleSlide('credits')" 
+        [ngClass]="{'bg-white shadow-sm': activeSlide$ === 'credits', 'bg-transparent': activeSlide$ !== 'credits'}"
+        class="h-10 w-10 rounded-xl"
+      >
+        <i class="bi bi-globe text-primary text-xl md:text-2xl"></i>
+      </button>
+    </div>
+  </div>
+</nav>

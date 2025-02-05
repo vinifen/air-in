@@ -1,0 +1,30 @@
+<div *ngIf="!isDeleteCitiesWModeOn$" class="w-full h-full">  
+  <div *ngIf="!isLgScreen" class="h-full w-full flex items-center justify-start lg:hidden">
+    <div class="flex w-full h-auto items-center justify-center lg:hidden">
+      <app-settings-main [isDeleteCitiesWModeOn$]="isDeleteCitiesWModeOn$" class="w-full h-full"></app-settings-main>
+    </div>
+  </div>
+
+  <div *ngIf="isLgScreen" class="hidden lg:h-full lg:w-80 lg:grid lg:grid-rows-6">
+    <div class="row-start-4 row-end-5 flex justify-end items-end">
+      <app-settings-main [isDeleteCitiesWModeOn$]="isDeleteCitiesWModeOn$" class="w-full h-full"></app-settings-main>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isDeleteCitiesWModeOn$" class="w-full h-full">  
+  <div *ngIf="!isLgScreen" class="h-full w-full flex items-center justify-start lg:hidden">
+    <div class="flex w-full h-auto items-center justify-center lg:hidden">
+      <app-delete-cities [isDeleteCitiesWModeOn$]="isDeleteCitiesWModeOn$" class="w-full h-full"></app-delete-cities>
+    </div>
+    
+  </div>
+
+  <div *ngIf="isLgScreen" class="hidden lg:h-full lg:w-80 lg:grid lg:grid-rows-6">
+    <div class="row-start-4 row-end-5 flex justify-start items-start">
+      <app-delete-cities [isDeleteCitiesWModeOn$]="isDeleteCitiesWModeOn$" class="w-full h-full"></app-delete-cities>
+    </div>
+    
+  </div>
+</div>
+

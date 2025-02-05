@@ -1,0 +1,26 @@
+<div 
+  class="bg-cover bg-center w-full h-full flex flex-col justify-center items-center"
+  style="background-image: url('/background-air-in.png');"
+>
+  <div 
+  class="w-15/16 h-full grid grid-rows-[auto_1fr_auto] gap-4 md:w-10/12 lg:w-11/12 lg:grid lg:grid-cols-[auto_1fr] lg:items-center 2xl:w-9/12"
+  >
+    <app-sidenav-home-lg 
+      *ngIf="isLgScreen" 
+      class="lg:h-screen lg:col-start-1"
+    ></app-sidenav-home-lg>
+    
+    <app-nav-top-home-sm 
+      *ngIf="!isLgScreen" 
+      class="row-start-1"
+    ></app-nav-top-home-sm>
+    
+    <app-main-home 
+      class="row-start-2 lg:row-start-auto lg:col-start-2 lg:flex h-full"
+    ></app-main-home>
+    
+    <app-nav-bottom-home-sm 
+      *ngIf="!isLgScreen" 
+      class="row-start-3 h-full"
+    ></app-nav-bottom-home-sm>
+</div>

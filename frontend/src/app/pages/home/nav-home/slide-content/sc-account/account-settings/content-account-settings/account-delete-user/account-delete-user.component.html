@@ -1,0 +1,82 @@
+<div class="flex w-full h-auto items-center justify-center lg:hidden">
+  <div class="flex items-center justify-center h-full w-full mb-2 mx-2 bg-white-50 rounded-xl shadow-sm sm:w-5/6">      
+
+    <button 
+      (click)="toggleReturnSettings()"
+      routerLink="/"
+      class=" flex items-center justify-center w-14 h-28 sm:w-28">
+      <i class="bi bi-arrow-left text-primary text-sm"></i>
+    </button>
+
+    <form 
+      (ngSubmit)="onSubmit()" 
+      class="w-5/6 h-auto flex flex-col justify-center items-start mt-2">
+      
+      <input 
+        type="password"
+        [(ngModel)]="inputPassword" 
+        name="password"
+        placeholder="Password"
+        class="focus:outline-primary text-sm rounded-xl mb-1 bg-gray-50 border-2 h-9 border-gray-500 border-opacity-20 w-5/6">
+
+      <div *ngIf="successMessage" class="text-green-500 text-xs mb-1">
+        {{ successMessage }}
+      </div>
+  
+      <div *ngIf="errorMessage" class="text-red-500 text-xs mb-1">
+        {{ errorMessage }}
+      </div>
+      <button 
+        type="submit"
+        class="bg-gray-50 border-2 border-gray-500 border-opacity-20 mb-2 mt-1 rounded-xl h-10 flex w-5/6 items-center justify-center ">
+        <p class="text-xs text-primary">Submit</p>
+      </button>
+    </form>
+
+  </div>    
+</div>
+
+
+
+<div 
+  class="hidden bg-white-50 w-15/16 h-auto rounded-2xl shadow-sm lg:flex justify-center items-center">
+  <div class="flex flex-col justify-between items-center h-9/10 w-5/6 ">
+
+    <div class="flex items-center justify-center w-full h-16 mt-2">
+      <button 
+        (click)="toggleReturnSettings()"
+        routerLink="/"
+        class="w-2/6 h-full rounded-xl ">
+        <i class="bi bi-arrow-left text-primary text-base"></i>
+      </button>
+      <h1 class=" text-primary text-base w-4/6 h-full flex items-center justify-start">Delete Account</h1>
+    </div>
+
+    <form 
+      (ngSubmit)="onSubmit()" 
+      (input)="validateForm()"
+      class="w-full h-auto flex flex-col justify-around items-center mb-6">
+      <input 
+        type="password"
+        [(ngModel)]="inputPassword" 
+        name="password"
+        placeholder="Password"
+        class="focus:outline-primary rounded-xl mx-3 bg-gray-50 border-2 mb-2 border-gray-500 border-opacity-20 w-full h-10">
+
+        <div *ngIf="successMessage" class="text-green-500 text-sm mb-1">
+          {{ successMessage }}
+        </div>
+    
+        <div *ngIf="errorMessage" class="text-red-500 text-sm mb-1">
+          {{ errorMessage }}
+        </div>
+      <button 
+        type="submit"
+        [disabled]="!isFormValid" 
+        class="bg-gray-50 border-2 border-gray-500 border-opacity-20 rounded-xl h-10 mt-2 flex w-full items-center justify-center ">
+        <p class="text-sm text-primary">Submit</p>
+      </button>
+    </form>
+    
+  </div>
+</div>

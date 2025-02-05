@@ -1,0 +1,33 @@
+
+<div class="flex w-full h-auto items-center justify-center lg:hidden">
+  <div class="flex items-center justify-around h-full w-full mb-2 mx-2 bg-white-50 rounded-xl shadow-sm sm:w-5/6">      
+    <button (click)="toggleAccountSettings()" class="bg-gray-50 text-sm border-2 border-gray-500 border-opacity-20 rounded-xl my-1 h-9 w-2/6 flex items-center justify-center text-center md:w-48 md:h-10">
+      <i class="bi bi-person-square text-xl text-primary"></i>            
+    </button>               
+    <button (click)="toggleLogout()" class="bg-gray-50 text-sm border-2 border-gray-500 border-opacity-20 rounded-xl h-9 w-2/6 my-1 flex items-center justify-center text-center md:w-48 md:h-10">
+      <i class="bi bi-box-arrow-in-left text-xl text-primary"></i>
+    </button>
+  </div>    
+</div>
+
+
+<div class="hidden bg-white-50 w-15/16 h-52 rounded-2xl shadow-sm lg:flex justify-center items-center">
+  <div class="flex flex-col justify-between items-center h-5/6  w-5/6">
+    <h1 class="flex items-center justify-center w-full h-1/4 text-primary">Hello {{userData?.username}}</h1>
+
+      <div class="w-full h-3/4 flex flex-col justify-around items-center">
+
+        <button (click)="toggleAccountSettings()" class="bg-gray-50 text-sm border-2 border-gray-500 border-opacity-20 rounded-xl h-10 flex w-full items-center justify-center">
+          <i class="bi bi-person-square text-xl  text-primary"></i> 
+        </button>
+
+        <button (click)="toggleLogout()" class="bg-gray-50 text-sm border-2 border-gray-500 border-opacity-20 w-full rounded-xl h-10 flex items-center justify-center">
+          <i class="bi bi-box-arrow-in-left text-xl text-primary"></i>
+        </button>
+
+      </div>
+
+  </div>
+</div>
+  
+

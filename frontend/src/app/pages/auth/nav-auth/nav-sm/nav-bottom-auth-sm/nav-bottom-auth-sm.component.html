@@ -1,0 +1,23 @@
+<nav class="flex items-center justify-center flex-wrap">
+  <div class="bg-white-50 h-14 w-full mb-1 flex items-center justify-center rounded-2xl shadow-lg md:h-16 ">
+    <div 
+      class="flex justify-between items-center h-full mx-2 w-11/12 md:w-5/6"
+    >
+      <button (click)="toggleContent('login')" 
+        class="w-13 h-12 rounded-xl flex flex-col justify-center items-center"
+        [ngClass]="{'bg-white shadow-sm': activeContent === 'login'}"
+        >
+        <i class="bi bi-person-check-fill text-primary text-xl"></i>
+        <p class="text-xs">Login</p>
+      </button>
+
+      <button (click)="toggleContent('register')" 
+        [ngClass]="{'bg-white shadow-sm': activeContent === 'register'}"
+        class="w-13 h-12 rounded-xl flex flex-col justify-center items-center"
+        >
+        <i class="bi bi-person-plus-fill text-primary text-xl"></i>
+        <p class="text-xs">Register</p>
+      </button>
+    </div>
+  </div>
+</nav>
