@@ -19,33 +19,32 @@ Certifique-se de ter os seguintes itens instalados:
 - git:  `sudo apt install git-all`
 - node.js: `sudo apt install nodejs` 
 - npm: `sudo apt install npm` 
-- typescript: `npm install -g typescript`
 - angular: `npm install -g @angular/cli`
 
-#### Clonar repositório:
+### Clonar repositório:
 
-```repositório
+```bash
 git clone https://github.com/vinifen/air-in.git
 ```
 
-#### Instalar dependências:
+### Instalar dependências:
 
-```dependências
+```bash
 npm install
 ```
 
-#### Rodar aplicação:
+### Rodar aplicação:
 
 
-```run
+```bash
 ng serve
 ```
 
-#### Fazer Build:
+### Fazer Build:
 
 Caso deseje fazer build do projeto utilize o comando abaixo:
 
-```build
+```bash
 ng build
 ```
 
