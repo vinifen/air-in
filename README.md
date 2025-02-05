@@ -25,20 +25,20 @@ Certifique-se de ter os seguintes itens instalados:
 #### Clonar repositório:
 
 ```repositório
-  git clone https://github.com/vinifen/air-in.git
+git clone https://github.com/vinifen/air-in.git
 ```
 
 #### Instalar dependências:
 
 ```dependências
-  npm install
+npm install
 ```
 
 #### Rodar aplicação:
 
 
 ```run
-  ng serve
+ng serve
 ```
 
 #### Fazer Build:
@@ -46,7 +46,7 @@ Certifique-se de ter os seguintes itens instalados:
 Caso deseje fazer build do projeto utilize o comando abaixo:
 
 ```build
-  ng build
+ng build
 ```
 
 
