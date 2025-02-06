@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendURL: "http://air-in.space/api/",
+  backendURL: process.env['BACKEND_URL'],
 };

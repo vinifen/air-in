@@ -1,0 +1,7 @@
+FROM node:23-alpine3.20
+
+COPY . . 
+
+ENV WEB_BACK_URL: ${WEB_BACK_URL}
+
+EXPOSE ${FRONT_PORT}

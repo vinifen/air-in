@@ -8,7 +8,7 @@ import { take } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiWeatherService {
-  apiURL: string = environment.backendURL;
+  apiURL= environment.backendURL;
   
   constructor(private http: HttpClient) {}
 

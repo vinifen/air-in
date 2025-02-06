@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  backendURL: "http://localhost:1111/",
+  backendURL: process.env['BACKEND_URL'],
 };

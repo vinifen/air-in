@@ -1,0 +1,37 @@
+version: '1.0'
+services:
+  frontend:
+    build: ./frontend
+    env_file:
+      - .env
+    environment:
+      - WEB_URL=${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}
+      - WEB_BACK_URL=${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}${WEB_FRONT_URL}
+    ports:
+      - "${FRONT_PORT}:${FRONT_PORT}"
+  
+  backend:
+    build: ./backend
+    env_file:
+      - .env
+    environment:
+      - WEB_URL=${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}
+    ports:
+      - "${BACK_PORT}:${BACK_PORT}"
+
+  db:
+    build: ./db
+    env_file:
+      - .env
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+
+  web:
+    build: ./web
+    env_file:
+      - .env
+    environment:
+      - WEB_FRONT_URL=${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}${WEB_FRONT_URL}
+      - WEB_BACK_URL=${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}${WEB_BACK_URL}
+    ports:
+      - "80:80"

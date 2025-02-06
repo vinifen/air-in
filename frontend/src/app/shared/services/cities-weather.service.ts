@@ -9,7 +9,7 @@ import ICitiesData from '../interfaces/ICitiesData';
 })
 export class CitiesWeatherService {
   private citiesData$: BehaviorSubject<ICitiesData[] | null> = new BehaviorSubject<ICitiesData[] | null>(null);
-  private apiURL: string = environment.backendURL;
+  private apiURL= environment.backendURL;
  
 
   constructor(private http: HttpClient) {}
