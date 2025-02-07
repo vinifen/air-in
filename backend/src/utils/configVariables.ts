@@ -1,6 +1,3 @@
-// import dotenv from 'dotenv';
-
-// dotenv.config();
 
 class ConfigVariablesClass {
 
@@ -51,6 +48,7 @@ class ConfigVariablesClass {
   }
 
   get COOKIE_SECURE(): boolean{
+    console.log(process.env.COOKIE_SECURE, "COOKIES SECURE VARIABLE");
     const cookieSecureBinary = process.env.COOKIE_SECURE ? parseInt(process.env.COOKIE_SECURE) : 1;
     if(cookieSecureBinary === 0){
       return false;
@@ -58,8 +56,8 @@ class ConfigVariablesClass {
     if(cookieSecureBinary === 1){
       return true;
     }
-    console.error("Cookie secure not defined, default value: true");
-    return true;
+    console.error("Cookie secure not defined, default value: false");
+    return false;
   }
 }
 

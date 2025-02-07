@@ -11,11 +11,10 @@ import AuthRouter from './routes/AuthRouter';
 import { configVariables } from './utils/configVariables';
 import UsersModel from './model/UsersModel';
 import UserService from './services/UserService';
-import checkDotEnv from './utils/checkDotEnv';
-
-checkDotEnv();
 
 const app = fastify();
+
+console.log(configVariables.COOKIE_SECURE, configVariables.CORS_ORIGIN, configVariables.DB_HOST, configVariables.DB_NAME, configVariables.DB_PASSWORD, configVariables.DB_USER, configVariables.JWT_REFRESH_KEY, configVariables.JWT_SESSION_KEY, configVariables.SERVER_HOSTNAME, configVariables.SERVER_PORT, configVariables.WEATHER_API_KEY, configVariables.corsOptions);
 
 const databaseService = new DbService(
   configVariables.DB_HOST,
