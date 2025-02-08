@@ -2,8 +2,8 @@ SET @db_name = 'air_in_db';
 /* ***If you want to change the database name, change it here and also change the command 
    'USE air_in_db;' */
 
-SET @user = 'root';
-SET @host = 'localhost';    
+SET @user = 'air_in_user';
+SET @host = '%';    
 SET @password = 'abc321';
 
 SET @sql = CONCAT('CREATE DATABASE IF NOT EXISTS ', @db_name, ';');
@@ -19,6 +19,11 @@ SET @sql = IF(@exist = 0,
     CONCAT('CREATE USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";'), 
     'SELECT "User already exists";'
 );
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+SET @sql = CONCAT('ALTER USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";');
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
@@ -72,7 +77,6 @@ DELETE FROM refresh_tokens WHERE created_at < NOW() - INTERVAL 7 DAY;
 
 
 SET GLOBAL event_scheduler = ON;
-
 
 
 

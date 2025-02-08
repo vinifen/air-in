@@ -1,15 +1,12 @@
-#web
 FROM nginx:stable-alpine3.20-perl
 
-ENV WEB_PORT: ${WEB_PORT}
-ENV WEB_DOMAIN: ${WEB_DOMAIN}
-ENV FRONT_URL: ${FRONT_URL}
-ENV BACK_URL: ${BACK_URL}
+WORKDIR /web
 
-COPY setVariables.sh /setVariables.sh
+COPY entrypoint.sh /entrypoint.sh
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
 
-RUN chmod +x /setVariables.sh
+RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT [ "/setVariables.sh" ]
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80

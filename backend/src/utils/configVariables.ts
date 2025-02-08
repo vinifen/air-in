@@ -9,21 +9,21 @@ class ConfigVariablesClass {
     };
   }
   get CORS_ORIGIN(): string {
-    return process.env.CORS_ORIGIN || '';
+    return process.env.WEB_URL || 'error cors_origin';
   }
 
   
   get DB_HOST(): string {
-    return process.env.DB_HOST || 'localhost';
+    return process.env.DB_HOST || 'erro';
   }
   get DB_USER(): string {
-    return process.env.DB_USER || 'root';
+    return process.env.DB_USER || 'erro';
   }
   get DB_PASSWORD(): string {
-    return process.env.DB_PASSWORD || 'abc321';
+    return process.env.DB_ROOT_PASSWORD || 'erro';
   }
   get DB_NAME(): string {
-    return process.env.DB_NAME || 'air_in_db';
+    return process.env.DB_NAME || 'error';
   }
 
 
@@ -33,10 +33,10 @@ class ConfigVariablesClass {
 
 
   get SERVER_HOSTNAME(): string {
-    return process.env.SERVER_HOSTNAME || 'localhost';
+    return process.env.BACK_DOMAIN || 'error';
   }
   get SERVER_PORT(): number {
-    return process.env.SERVER_PORT ? parseInt(process.env.SERVER_PORT) : 1111;
+    return process.env.BACK_PORT ? parseInt(process.env.BACK_PORT) : 22;
   }
 
 

@@ -1,23 +1,16 @@
-#backend
+# backend/Dockerfile
 FROM node:23-alpine3.20
 
 WORKDIR /backend
 
-ENV SERVER_HOSTNAME=${BACK_DOMAIN}
-ENV SERVER_PORT=${BACK_PORT}
-ENV CORS_ORIGIN=${WEB_URL} 
+COPY . .
 
-ENV WEATHER_API_KEY=${WEATHER_API_KEY}
-ENV JWT_SESSION_KEY=${JWT_SESSION_KEY}
-ENV JWT_REFRESH_KEY=${JWT_REFRESH_KEY}
+RUN rm -rf node_modules
+RUN npm install
 
-ENV DB_HOST=${DB_HOST} 
-ENV DB_USER=${DB_USER} 
-ENV DB_PASSWORD=${DB_PASSWORD} 
-ENV DB_NAME=${DB_NAME} 
+RUN apk add --no-cache bash
 
-ENV COOKIES_SECURE=${COOKIES_SECURE}
+COPY wait-for-it.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/wait-for-it.sh
 
-CMD npm run dev
-
-
+CMD ["/usr/local/bin/wait-for-it.sh", "db:3306", "--", "npm", "run", "dev"]

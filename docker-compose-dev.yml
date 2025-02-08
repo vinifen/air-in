@@ -1,14 +1,25 @@
-version: '1.0'
+version: '3.8'
 services:
+  db:
+    container_name: db
+    build: ./db
+    env_file:
+      - .env
+    networks:
+      - air-in-network
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   frontend:
     container_name: frontend
     build: ./frontend
-    volumes:
-      - ./frontend:/frontend
-    env_file:
-      - .env
     environment:
-      - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}${WEB_BACK_PATH}
+      - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
     ports:
       - "${FRONT_PORT}:${FRONT_PORT}"
     networks:
@@ -19,43 +30,35 @@ services:
   backend:
     container_name: backend
     build: ./backend
-    volumes:
-      - ./backend:/backend
     env_file:
       - .env
     environment:
-      - WEB_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}
+      - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
     ports:
       - "${BACK_PORT}:${BACK_PORT}"
     networks:
       - air-in-network
     depends_on:
-      - db
-
-  db:
-    container_name: db
-    build: ./db
-    env_file:
-      - .env
-    networks:
-      - air-in-network
+      db:
+        condition: service_healthy
+    
   
   web:
     container_name: web
     build: ./web
-    volumes:
-      - ./web/nginx.conf.template:/etc/nginx/nginx.conf.template
     env_file:
       - .env
     environment:
       - WEB_PORT=${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
-      - FRONT_URL="${FRONT_SCHEME}://${FRONT_DOMAIN}:${FRONT_PORT}/"
-      - BACK_URL="${BACK_SCHEME}://${BACK_DOMAIN}:${BACK_PORT}/"
+      - FRONT_URL="${FRONT_SCHEME}://frontend:${FRONT_PORT}/"
+      - BACK_URL="${BACK_SCHEME}://backend:${BACK_PORT}/"
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
     networks:
       - air-in-network
+    depends_on:
+      - frontend
 
 networks:
   air-in-network:

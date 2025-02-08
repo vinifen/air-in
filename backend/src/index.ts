@@ -38,6 +38,9 @@ app.register(CityRouter, { db: databaseService, weatherApiS: weatherApiService, 
 app.register(UserRouter, { db: databaseService, jwtSessionRefreshS: sessionRefreshJWTService, userService });
 app.register(AuthRouter, { db: databaseService, jwtSessionRefreshS: sessionRefreshJWTService, userService })
 
-app.listen({ port: configVariables.SERVER_PORT, host: configVariables.SERVER_HOSTNAME }).then(() => {
+app.listen({ 
+  port: configVariables.SERVER_PORT, 
+  host: '0.0.0.0'
+}).then(() => {
   console.log(`HTTP server running on port: ${configVariables.SERVER_PORT}`);
 });
