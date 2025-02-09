@@ -33,10 +33,10 @@ class ConfigVariablesClass {
 
 
   get SERVER_HOSTNAME(): string {
-    return process.env.BACK_DOMAIN || 'error';
+    return 'localhost';
   }
   get SERVER_PORT(): number {
-    return process.env.BACK_PORT ? parseInt(process.env.BACK_PORT) : 22;
+    return 1111;
   }
 
 

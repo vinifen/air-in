@@ -1,4 +1,4 @@
-version: '3.8'
+
 services:
   db:
     container_name: db
@@ -8,7 +8,7 @@ services:
     ports:
       - "${DB_PORT}:${DB_PORT}"
     networks:
-      - air-in-network
+      - db-network
 
   frontend:
     container_name: frontend
@@ -16,7 +16,7 @@ services:
     environment:
       - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
     ports:
-      - "${FRONT_PORT}:${FRONT_PORT}"
+      - "4200:4200"
     networks:
       - air-in-network
     depends_on:
@@ -30,9 +30,12 @@ services:
     environment:
       - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
     ports:
-      - "${BACK_PORT}:${BACK_PORT}"
+      - "1111:1111"
     networks:
       - air-in-network
+      - db-network
+    depends_on:
+      - db
   
   web:
     container_name: web
@@ -42,8 +45,6 @@ services:
     environment:
       - WEB_PORT=${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
-      - FRONT_URL="${FRONT_SCHEME}://frontend:${FRONT_PORT}/"
-      - BACK_URL="${BACK_SCHEME}://backend:${BACK_PORT}/"
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
     networks:
@@ -53,4 +54,6 @@ services:
 
 networks:
   air-in-network:
+    driver: bridge
+  db-network:
     driver: bridge
