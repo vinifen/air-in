@@ -8,5 +8,3 @@ COPY nginx.conf.template /etc/nginx/nginx.conf.template
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-EXPOSE 80

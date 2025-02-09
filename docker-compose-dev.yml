@@ -5,15 +5,10 @@ services:
     build: ./db
     env_file:
       - .env
-    networks:
-      - air-in-network
     ports:
       - "${DB_PORT}:${DB_PORT}"
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    networks:
+      - air-in-network
 
   frontend:
     container_name: frontend
@@ -38,10 +33,6 @@ services:
       - "${BACK_PORT}:${BACK_PORT}"
     networks:
       - air-in-network
-    depends_on:
-      db:
-        condition: service_healthy
-    
   
   web:
     container_name: web
