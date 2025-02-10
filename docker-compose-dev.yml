@@ -20,7 +20,7 @@ services:
     environment:
       - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
     ports:
-      - "${FRONT_PORT_DEV}:${FRONT_PORT_DEV}"
+      - "${FRONT_PORT}:${FRONT_PORT}"
     networks:
       - air-in-network
     depends_on:
@@ -40,10 +40,9 @@ services:
     env_file:
       - .env
     environment:
-      - BACK_PORT=${BACK_PORT_DEV}
       - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
     ports:
-      - "${BACK_PORT_DEV}:${BACK_PORT_DEV}"
+      - "${BACK_PORT}:${BACK_PORT}"
     networks:
       - air-in-network
       - db-network
@@ -63,8 +62,8 @@ services:
     environment:
       - WEB_PORT=${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
-      - FRONT_URL="http://frontend:${FRONT_PORT_DEV}/"
-      - BACK_URL="http://backend:${BACK_PORT_DEV}/"
+      - FRONT_URL="http://frontend:${FRONT_PORT}/"
+      - BACK_URL="http://backend:${BACK_PORT}/"
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
     networks:
