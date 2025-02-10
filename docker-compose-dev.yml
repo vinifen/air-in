@@ -1,4 +1,5 @@
 
+
 services:
   db:
     container_name: db
@@ -12,31 +13,48 @@ services:
 
   frontend:
     container_name: frontend
-    build: ./frontend
+    image: node:23-alpine3.20  
+    working_dir: /frontend
+    volumes:
+      - ./frontend:/frontend 
     environment:
       - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
     ports:
-      - "4200:4200"
+      - "${FRONT_PORT_DEV}:${FRONT_PORT_DEV}"
     networks:
       - air-in-network
     depends_on:
       - backend
-  
+    entrypoint: >
+      sh -c "
+        /frontend/configureFrontend.sh && 
+        ng serve --host 0.0.0.0 --disable-host-check
+      "
+
   backend:
     container_name: backend
-    build: ./backend
+    image: node:23-alpine3.20  
+    working_dir: /backend
+    volumes:
+      - ./backend:/backend
     env_file:
       - .env
     environment:
+      - BACK_PORT=${BACK_PORT_DEV}
       - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
     ports:
-      - "1111:1111"
+      - "${BACK_PORT_DEV}:${BACK_PORT_DEV}"
     networks:
       - air-in-network
       - db-network
     depends_on:
       - db
-  
+    entrypoint: >
+      sh -c "
+        /backend/configureBackend.sh && 
+        npm run dev
+      "
+
   web:
     container_name: web
     build: ./web
@@ -45,6 +63,8 @@ services:
     environment:
       - WEB_PORT=${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
+      - FRONT_URL="http://frontend:${FRONT_PORT_DEV}/"
+      - BACK_URL="http://backend:${BACK_PORT_DEV}/"
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
     networks:
