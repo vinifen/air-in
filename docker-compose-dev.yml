@@ -50,7 +50,7 @@ services:
       - db
     entrypoint: >
       sh -c "
-        /backend/configureBackend.sh && 
+        npm install && 
         npm run dev
       "
 
@@ -60,7 +60,7 @@ services:
     env_file:
       - .env
     environment:
-      - WEB_PORT=${WEB_PORT_DEV}
+      - WEB_PORT=0.0.0.0:${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
       - FRONT_URL="http://frontend:${FRONT_PORT}/"
       - BACK_URL="http://backend:${BACK_PORT}/"

@@ -1,0 +1,65 @@
+
+
+services:
+  db:
+    container_name: db
+    build: ./db
+    env_file:
+      - .env
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - db-network
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      args:
+        WEB_BACK_URL: "${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}:${WEB_PORT_PROD}${WEB_BACK_PATH}"
+    environment:
+      - FRONT_PORT=${FRONT_PORT}
+    ports:
+      - "${FRONT_PORT}:${FRONT_PORT}"
+    networks:
+      - air-in-network
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    build: ./backend 
+    env_file:
+      - .env
+    environment:
+      - WEB_URL="${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}:${WEB_PORT_PROD}"
+    ports:
+      - "${BACK_PORT}:${BACK_PORT}"
+    networks:
+      - air-in-network
+      - db-network
+    depends_on:
+      - db
+
+  web:
+    container_name: web
+    build: ./web
+    env_file:
+      - .env
+    environment:
+      - WEB_PORT=${WEB_PORT_PROD}
+      - WEB_DOMAIN=${WEB_DOMAIN_PROD}
+      - FRONT_URL="http://frontend:${FRONT_PORT}/"
+      - BACK_URL="http://backend:${BACK_PORT}/"
+    ports:
+      - "${WEB_PORT_PROD}:${WEB_PORT_PROD}"
+    networks:
+      - air-in-network
+    depends_on:
+      - frontend
+
+networks:
+  air-in-network:
+    driver: bridge
+  db-network:
+    driver: bridge
