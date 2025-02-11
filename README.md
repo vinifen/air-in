@@ -39,12 +39,13 @@ Siga .env.exemple
   sudo docker compose -f docker-compose-dev.yml up -d
 ```
 
+Após a instalação da aplicação esperar alguns segundos para tudo ser configurado dentro dos containeres.
+
 ### Iniciar aplicação em produção:
 
 ```bash
   sudo docker compose -f docker-compose-prod.yml up -d
 ```
-Após a instalação da aplicação esperar alguns segundos para tudo ser configurado dentro dos containeres.
 
 ### Deletar containeres:
 
