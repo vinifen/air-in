@@ -50,10 +50,12 @@ services:
       - db
     entrypoint: >
       sh -c "
-        rm -rf node_modules &&
+        [ -d node_modules ] && rm -rf node_modules || echo 'frontend node_modules does not exist';
         npm install && 
         npm run dev
       "
+    dns:
+      - 8.8.8.8
 
   web:
     container_name: web

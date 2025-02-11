@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # frontend
-rm -rf node_modules
+[ -d node_modules ] && rm -rf node_modules || echo 'frontend node_modules does not exist ';
 npm install -g @angular/cli  
 npm install
 
