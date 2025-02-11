@@ -51,13 +51,15 @@ export class CitiesWCardsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['activeSlide$']) {
+    if (changes['activeSlide$'] && this.activeSlide$ === "search-bar") {
       this.updateRenderCards();
     }
   }
 
   private updateRenderCards(): void {
-    if (this.activeSlide$ === "search-bar" && this.promptSearchCities$ !== "") {
+    if(this.promptSearchCities$ === ""){
+      this.renderCardsData = this.weatherData$;
+    }else if (this.activeSlide$ === "search-bar") {
       this.citiesSearched$ = this.weatherData$.filter((item: any) =>
         item.content.name.toLowerCase().includes(this.promptSearchCities$.toLowerCase())
       );

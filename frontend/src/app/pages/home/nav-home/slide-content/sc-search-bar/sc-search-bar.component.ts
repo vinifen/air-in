@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnDestroy, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OnInit } from '@angular/core';
@@ -11,7 +11,7 @@ import { SearchCitiesService } from '../../../search-cities.service';
   templateUrl: './sc-search-bar.component.html',
   // styleUrl: './sc-search-bar.component.css'
 })
-export class ScSearchBarComponent{
+export class ScSearchBarComponent implements OnDestroy{
   inputValue: string = '';
 
   constructor(private searchCitiesService: SearchCitiesService) {}
@@ -22,4 +22,10 @@ export class ScSearchBarComponent{
 
     this.searchCitiesService.setCitiesSearched(value);
   }
+
+  ngOnDestroy(): void {
+    this.searchCitiesService.setCitiesSearched('');
+    console.log("destruido")
+  }
+
 }

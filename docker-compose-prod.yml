@@ -1,5 +1,3 @@
-
-
 services:
   db:
     container_name: db
@@ -10,6 +8,8 @@ services:
       - "${DB_PORT}:${DB_PORT}"
     networks:
       - db-network
+    volumes:
+      - ./db/db-data:/var/lib/mysql
 
   frontend:
     container_name: frontend
