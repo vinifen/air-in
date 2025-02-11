@@ -1,4 +1,4 @@
-#db
+# DB Dev Prod
 FROM mysql:8.0-debian
 
 ENV MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}

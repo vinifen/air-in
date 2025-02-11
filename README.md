@@ -1,5 +1,4 @@
-
-# Air-in Backend
+# Air-in
 #### v-1.1
 
 Air-in é um aplicativo desenvolvido por Vinicius FN, para pesquisa do clima em qualquer cidade do mundo. Foi criado com o objetivo de aprimorar habilidades no desenvolvimento de software web.
@@ -45,7 +44,20 @@ Siga .env.exemple
 ```bash
   sudo docker compose -f docker-compose-prod.yml up -d
 ```
+Após a instalação da aplicação esperar alguns segundos para tudo ser configurado dentro dos containeres.
 
+### Deletar containeres:
 
+```bash
+  sudo docker stop db backend frontend web
+```
 
+```bash
+  sudo docker rm  db backend frontend web
+```
 
+### Deletar todas images:
+
+```bash
+  sudo docker rmi  air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
+```

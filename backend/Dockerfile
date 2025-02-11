@@ -4,8 +4,7 @@ FROM node:23-alpine3.20
 WORKDIR /backend
 
 COPY . .
-RUN chmod +x /backend/configureBackend.sh
-RUN /backend/configureBackend.sh
+RUN rm -rf node_modules 
+RUN npm install
 RUN npm run build
 CMD npm run start
-

@@ -50,6 +50,7 @@ services:
       - db
     entrypoint: >
       sh -c "
+        rm -rf node_modules &&
         npm install && 
         npm run dev
       "

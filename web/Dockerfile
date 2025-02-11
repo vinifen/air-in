@@ -1,3 +1,4 @@
+# Web Dev Prod
 FROM nginx:stable-alpine3.20-perl
 
 WORKDIR /web
@@ -8,4 +9,3 @@ COPY nginx.conf .
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
