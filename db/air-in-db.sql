@@ -1,40 +1,40 @@
-SET @db_name = 'air_in_db';
+-- SET @db_name = 'air_in_db';
 /* ***If you want to change the database name, change it here and also change the command 
    'USE air_in_db;' */
 
-SET @user = 'air_in_user';
-SET @host = '%';    
-SET @password = 'abc321';
+-- SET @user = 'air_in_user';
+-- SET @host = '%';    
+-- SET @password = 'abc321';
 
-SET @sql = CONCAT('CREATE DATABASE IF NOT EXISTS ', @db_name, ';');
-PREPARE stmt FROM @sql;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
-
-
-SELECT COUNT(*) INTO @exist FROM mysql.user WHERE user = @user AND host = @host;
+-- SET @sql = CONCAT('CREATE DATABASE IF NOT EXISTS ', @db_name, ';');
+-- PREPARE stmt FROM @sql;
+-- EXECUTE stmt;
+-- DEALLOCATE PREPARE stmt;
 
 
-SET @sql = IF(@exist = 0, 
-    CONCAT('CREATE USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";'), 
-    'SELECT "User already exists";'
-);
-PREPARE stmt FROM @sql;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
-
-SET @sql = CONCAT('ALTER USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";');
-PREPARE stmt FROM @sql;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
+-- SELECT COUNT(*) INTO @exist FROM mysql.user WHERE user = @user AND host = @host;
 
 
-SET @sql = CONCAT('GRANT ALL PRIVILEGES ON ', @db_name, '.* TO "', @user, '"@"', @host, '" WITH GRANT OPTION;');
-PREPARE stmt FROM @sql;
-EXECUTE stmt;
-DEALLOCATE PREPARE stmt;
+-- SET @sql = IF(@exist = 0, 
+--     CONCAT('CREATE USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";'), 
+--     'SELECT "User already exists";'
+-- );
+-- PREPARE stmt FROM @sql;
+-- EXECUTE stmt;
+-- DEALLOCATE PREPARE stmt;
 
-FLUSH PRIVILEGES;
+-- SET @sql = CONCAT('ALTER USER "', @user, '"@"', @host, '" IDENTIFIED BY "', @password, '";');
+-- PREPARE stmt FROM @sql;
+-- EXECUTE stmt;
+-- DEALLOCATE PREPARE stmt;
+
+
+-- SET @sql = CONCAT('GRANT ALL PRIVILEGES ON ', @db_name, '.* TO "', @user, '"@"', @host, '" WITH GRANT OPTION;');
+-- PREPARE stmt FROM @sql;
+-- EXECUTE stmt;
+-- DEALLOCATE PREPARE stmt;
+
+-- FLUSH PRIVILEGES;
 
 
 

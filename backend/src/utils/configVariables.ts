@@ -20,7 +20,7 @@ class ConfigVariablesClass {
     return process.env.DB_USER || 'error DB_USER';
   }
   get DB_PASSWORD(): string {
-    return process.env.DB_ROOT_PASSWORD || 'error DB_PASSWORD';
+    return process.env.DB_PASSWORD || 'error DB_PASSWORD';
   }
   get DB_NAME(): string {
     return process.env.DB_NAME || 'error DB_NAME';
