@@ -14,5 +14,7 @@ RUN ng build --configuration production
 
 RUN npm install -g http-server
 
+RUN sh -c 'ls | grep -v "^dist$" | xargs rm -rf'
+
 CMD http-server dist/air-in/browser -p ${FRONT_PORT} -a 0.0.0.0
 

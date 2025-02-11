@@ -38,7 +38,7 @@ export class AccountEditUsnmComponent implements OnInit {
       return;
     }
 
-    this.errorMessage = ""; // Clear the error if all validations pass
+    this.errorMessage = ""; 
     this.isFormValid = true;
   }
 
@@ -63,7 +63,7 @@ export class AccountEditUsnmComponent implements OnInit {
         this.successMessage = result.data.message || "Username updated successfully!";
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 800);
       } else {
         this.errorMessage = result?.data?.message || "Failed to update the username.";
       }

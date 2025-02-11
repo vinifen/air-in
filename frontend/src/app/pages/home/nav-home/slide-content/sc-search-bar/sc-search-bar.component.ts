@@ -11,12 +11,10 @@ import { SearchCitiesService } from '../../../search-cities.service';
   templateUrl: './sc-search-bar.component.html',
   // styleUrl: './sc-search-bar.component.css'
 })
-export class ScSearchBarComponent implements OnInit {
+export class ScSearchBarComponent{
   inputValue: string = '';
 
   constructor(private searchCitiesService: SearchCitiesService) {}
-
-  ngOnInit(): void {}
 
   sendInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;

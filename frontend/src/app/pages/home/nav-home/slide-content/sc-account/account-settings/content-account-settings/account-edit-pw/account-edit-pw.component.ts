@@ -62,7 +62,7 @@ export class AccountEditPwComponent {
         this.successMessage = result.data.message || 'Password updated successfully!';
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 800);
       } else {
         this.errorMessage = result?.data?.message || 'Failed to update the password.';
       }
