@@ -25,7 +25,6 @@ export class ScSearchBarComponent implements OnDestroy{
 
   ngOnDestroy(): void {
     this.searchCitiesService.setCitiesSearched('');
-    console.log("destruido")
   }
 
 }
