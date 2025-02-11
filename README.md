@@ -56,7 +56,7 @@ Após a instalação da aplicação esperar alguns segundos para tudo ser config
   sudo docker rm  db backend frontend web
 ```
 
-### Deletar todas images:
+### Deletar todas as images:
 
 ```bash
   sudo docker rmi  air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
