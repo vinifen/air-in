@@ -63,9 +63,12 @@ services:
 
   web:
     container_name: web
-    build: ./web
+    image: nginx:stable-alpine3.20-perl
     env_file:
       - .env
+    volumes:
+      - ./web/entrypoint.sh:/web/entrypoint.sh 
+      - ./web/dev/nginx.conf:/web/nginx.conf
     environment:
       - WEB_PORT=0.0.0.0:${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
@@ -73,6 +76,8 @@ services:
       - BACK_URL=http://backend:${BACK_PORT}/
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
+    entrypoint: > 
+      sh -c  "chmod +x ./web/entrypoint.sh && /web/entrypoint.sh"
     networks:
       - air-in-network
     depends_on:

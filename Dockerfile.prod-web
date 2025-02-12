@@ -1,0 +1,34 @@
+# Frontend Prod
+FROM node:23-alpine3.20 AS builder
+
+WORKDIR /frontend
+
+ARG WEB_BACK_URL
+
+COPY ./frontend .
+
+RUN chmod +x /frontend/configureFrontend.sh
+RUN /frontend/configureFrontend.sh
+
+RUN ng build --configuration production
+
+RUN sh -c 'ls | grep -v "^dist$" | xargs rm -rf'
+
+
+# Web Prod
+FROM nginx:stable-alpine3.20-perl
+
+WORKDIR /web
+
+COPY --from=builder /frontend/dist/air-in /usr/share/nginx/html/air-in
+
+RUN chown -R nginx:nginx /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
+
+COPY /web/entrypoint.sh /entrypoint.sh
+COPY /web/prod/nginx.conf .
+COPY /web/prod/mime.types /etc/nginx/mime.types
+
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

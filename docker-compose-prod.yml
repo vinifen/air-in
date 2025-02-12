@@ -15,21 +15,6 @@ services:
     volumes:
       - ./db/db-data:/var/lib/mysql
 
-  frontend:
-    container_name: frontend
-    build:
-      context: ./frontend
-      args:
-        WEB_BACK_URL: "${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}:${WEB_PORT_PROD}${WEB_BACK_PATH}"
-    environment:
-      - FRONT_PORT=${FRONT_PORT}
-    ports:
-      - "${FRONT_PORT}:${FRONT_PORT}"
-    networks:
-      - air-in-network
-    depends_on:
-      - backend
-
   backend:
     container_name: backend
     build: ./backend 
@@ -47,20 +32,23 @@ services:
 
   web:
     container_name: web
-    build: ./web
+    build:
+      context: .
+      dockerfile: Dockerfile.prod-web
+      args:
+        WEB_BACK_URL: "${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}:${WEB_PORT_PROD}${WEB_BACK_PATH}"
     env_file:
       - .env
     environment:
       - WEB_PORT=${WEB_PORT_PROD}
       - WEB_DOMAIN=${WEB_DOMAIN_PROD}
-      - FRONT_URL=http://frontend:${FRONT_PORT}/
-      - BACK_URL=http://backend:${BACK_PORT}/
+      - FRONT_URL="http://frontend:${FRONT_PORT}/"
+      - BACK_URL="http://backend:${BACK_PORT}/"
     ports:
       - "${WEB_PORT_PROD}:${WEB_PORT_PROD}"
     networks:
       - air-in-network
-    depends_on:
-      - frontend
+
 
 networks:
   air-in-network:
