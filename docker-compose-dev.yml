@@ -3,9 +3,13 @@
 services:
   db:
     container_name: db
-    build: ./db
-    env_file:
-      - .env
+    build:
+      context: ./db
+      args:
+        DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        DB_PASSWORD: ${DB_PASSWORD}
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
     ports:
       - "${DB_PORT}:${DB_PORT}"
     networks:
