@@ -69,8 +69,8 @@ services:
     environment:
       - WEB_PORT=0.0.0.0:${WEB_PORT_DEV}
       - WEB_DOMAIN=${WEB_DOMAIN_DEV}
-      - FRONT_URL="http://frontend:${FRONT_PORT}/"
-      - BACK_URL="http://backend:${BACK_PORT}/"
+      - FRONT_URL=http://frontend:${FRONT_PORT}/
+      - BACK_URL=http://backend:${BACK_PORT}/
     ports:
       - "${WEB_PORT_DEV}:${WEB_PORT_DEV}"
     networks:

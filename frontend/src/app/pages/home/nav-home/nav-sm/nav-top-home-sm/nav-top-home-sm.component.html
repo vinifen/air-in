@@ -25,7 +25,7 @@
           </button>
         </div>
         <app-sc-search-bar 
-          [ngClass]="{'hidden': activeSlide$ !== 'search-bar', 'block': activeSlide$ === 'search-bar'}" 
+          *ngIf="activeSlide$ === 'search-bar'"
           class="h-full col-start-2 w-full"
         ></app-sc-search-bar>
       </div>
