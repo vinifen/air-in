@@ -11,10 +11,11 @@ export const routes: Routes = [
   {
     path: 'authentication',
     component: AuthComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard] 
   },
   {
     path: '**',
-    component: HomeComponent
+    redirectTo: '', 
+    pathMatch: 'full'
   }
 ];
