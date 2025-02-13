@@ -1,6 +1,8 @@
 # Air-in
 #### v-1.1
 
+http://air-in.space/
+
 Air-in é um aplicativo desenvolvido por Vinicius FN, para pesquisa do clima em qualquer cidade do mundo. Foi criado com o objetivo de aprimorar habilidades no desenvolvimento de software web.
 
 Esse repositório é um dos três criados para o desenvolvimento do projeto, sendo os outros dois:
@@ -13,6 +15,8 @@ Esse repositório é um dos três criados para o desenvolvimento do projeto, sen
 Certifique-se de ter docker e docker compose instalado:
 - docker (v27.5.1 testado): https://docs.docker.com/engine/install/
 - docker compose (v2.32.4 testado): https://docs.docker.com/compose/install/
+
+Também garanta que nenhuma das portas utilizadas pela a aplicação esteja em uso.
 
 ### Criar chave API 
 Primeiramente é necessário criar uma chave API em: https://openweathermap.org/api
@@ -27,11 +31,7 @@ Primeiramente é necessário criar uma chave API em: https://openweathermap.org/
 ### Criar .env
 
 Criar na raíz do projeto o arquivo `.env` para a configuração geral.
-Siga o modelo abaixo e altere WEATHER_API_KEY para sua chave gerada.
-(As configurações padrões funcionam com o banco de dados)
-
-Siga .env.exemple
-
+Siga o modelo de .env.example e altere WEATHER_API_KEY para sua chave gerada.
 
 ### Rodar aplicação em modo de desenvolvimento:
 
@@ -54,12 +54,14 @@ Após a instalação da aplicação esperar alguns segundos para tudo ser config
 ```
 
 ```bash
-  sudo docker rm  db backend frontend web
+  sudo docker rm db backend frontend web
 ```
+Ignorar erros de containers inexistentes.
 
 ### Deletar todas as images:
 
 ```bash
-  sudo docker rmi  air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
+  sudo docker rmi air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
 ```
+Ignorar erros de imagens inexistentes.
 
