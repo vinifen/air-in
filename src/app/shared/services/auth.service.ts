@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
   private isLogged$ = new BehaviorSubject<false | true>(false);
-  private apiURL: string = environment.backendURL;
+  private apiURL= environment.backendURL;
 
   constructor(
     private http: HttpClient,

@@ -11,18 +11,19 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     { url: '/auth/logout', methods: ['POST'] },
     { url: '/auth/refresh-token', methods: ['POST'] },
   ];
+  const spinner = inject(NgxSpinnerService);
+  spinner.show();
 
   const isPublicRoute = publicRoutes.some(
     (route) => req.url.includes(route.url) && route.methods.includes(req.method)
   );
 
   if (isPublicRoute) {
-    return next(req);
+    return next(req).pipe(finalize(() => {
+      spinner.hide();
+    }));
   }
 
-  const spinner = inject(NgxSpinnerService);
-  spinner.show();
-  
   const userSessionHandler = inject(UserSessionHandlerService);
 
   return next(req).pipe(

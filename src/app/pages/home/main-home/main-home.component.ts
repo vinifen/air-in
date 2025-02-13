@@ -56,7 +56,6 @@ export class MainHomeComponent implements OnInit{
 
     this.citiesWHandler.checkCities();
 
-
     this.deleteCitiesWService.getCitiesToDelete().subscribe({
       next: (value) => {this.citiesToDelete = value}
     });

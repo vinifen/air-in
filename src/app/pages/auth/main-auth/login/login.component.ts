@@ -26,21 +26,19 @@ export class LoginComponent {
   ) {}
 
   validateForm(): void {
-    const usernameRegex = /^[A-Za-z0-9]{2,30}$/;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,90}$/;
-
+    const usernameRegex = /^[A-Za-z0-9\s]{2,30}$/;
+    const passwordRegex = /^(?!\s)(?!.*\s$)(?=(.*[A-Za-z\d]){6,})[A-Za-z\d@_.!?\-/]{4,90}$/;
+  
     if (!usernameRegex.test(this.inputUsername)) {
-      this.errorMessage = "Username must be between 2 and 30 characters and contain only letters and numbers.";
+      this.errorMessage = "Username: 2-30 chars, only A-Z, 0-9.";
     }
-
     else if (!passwordRegex.test(this.inputPassword)) {
-      this.errorMessage = "Password must be between 4 and 90 characters, with at least one uppercase letter and one number.";
+      this.errorMessage = "Password: 4-90 chars, min 6 letters, only A-Z, 0-9, @ _ - . ! ? /. No spaces at start/end.";
     }
-    
     else {
       this.errorMessage = null;
     }
-
+  
     this.isFormValid = !this.errorMessage;
   }
 
@@ -56,7 +54,7 @@ export class LoginComponent {
     this.errorMessage = null;
   
     try {
-      const data = await this.handleUserSession.loginUserSesion(this.inputUsername, this.inputPassword, this.inputRememberMe);
+      const data = await this.handleUserSession.loginUserSesion(this.inputUsername.trim(), this.inputPassword.trim(), this.inputRememberMe);
 
       if (data.status) {
         this.successMessage = data.message; 

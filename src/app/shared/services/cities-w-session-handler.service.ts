@@ -67,6 +67,7 @@ export class CitiesWSessionHandlerService {
         next: async (newCities: any) => {
           try {
             const filteredNewCities = await this.removeInvalidCitiesW(newCities.data);
+            console.log(newCities);
   
             if (filteredNewCities.status && filteredNewCities.data) {
               const updatedData = await this.updatedCitiesWeatherData(filteredNewCities.data);
@@ -77,7 +78,7 @@ export class CitiesWSessionHandlerService {
               }
             } else {
         
-              resolve({ status: false, message: newCities.message || "Failed to process public cities." });
+              resolve({ status: false, message: filteredNewCities.message || "Failed to process public cities." });
             }
           } catch (error) {
             console.error("Erro ao atualizar os dados:", error);
@@ -96,8 +97,18 @@ export class CitiesWSessionHandlerService {
 
 
   private async removeInvalidCitiesW(cities: ICitiesData[] ){
-    const filteredCities = cities.filter(cities => !!cities.status);
-
+    const filteredCities = cities.filter(city => !!city.status);
+    const citiesData: ICitiesData[] | null = await firstValueFrom(this.citiesWeatherService.getCitiesData());
+    if (citiesData) { 
+      const hasEqualCity = cities.some(cityNew => 
+        citiesData.some(cityData => cityData.city === cityNew.city)
+      );
+      
+      if (hasEqualCity) {
+        return { status: false, message: "This city has already been added", data: filteredCities };
+      }
+    }
+    
     if(filteredCities.length == 0){
       if(cities.length === 1){
   

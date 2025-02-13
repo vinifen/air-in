@@ -1,6 +1,7 @@
-
 # Air-in Frontend
-#### v-1.0
+#### v-1.1
+
+http://air-in.space/
 
 Air-in é um aplicativo desenvolvido por Vinicius FN utilizando Angular 18, para pesquisa do clima em qualquer cidade do mundo. Foi criado com o objetivo de aprimorar habilidades no desenvolvimento de software web.
 
@@ -8,6 +9,9 @@ Esse repositório é um dos três criados para o desenvolvimento do projeto, sen
 - backend: https://github.com/vinifen/air-in-backend
 - docker: https://github.com/vinifen/air-in-docker
 
+Figma: https://www.figma.com/design/1M0Uc673vghA5KG11TwvNL/Air-In?node-id=0-1&p=f&t=8wNScQ6AMVmF58tF-0
+
+Video: https://www.youtube.com/watch?v=clhH-om0xYE&ab_channel=ViniciusFerreiraNovacoski
 
 ## Instalação:
 

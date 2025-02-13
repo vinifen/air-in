@@ -8,7 +8,7 @@ import IUserData from '../interfaces/IUserData';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiURL: string = environment.backendURL;
+  private apiURL = environment.backendURL;
   private userData$: BehaviorSubject<IUserData | null> = new BehaviorSubject<IUserData | null>(null);
 
   constructor(private http: HttpClient,){}
