@@ -9,7 +9,7 @@ services:
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
     ports:
-      - "${DB_PORT}:${DB_PORT}"
+      - "${DB_PORT}"
     networks:
       - db-network
     volumes:
@@ -23,7 +23,7 @@ services:
     environment:
       - WEB_URL="${WEB_SCHEME_PROD}://${WEB_DOMAIN_PROD}:${WEB_PORT_PROD}"
     ports:
-      - "${BACK_PORT}:${BACK_PORT}"
+      - "${BACK_PORT}"
     networks:
       - air-in-network
       - db-network

@@ -11,7 +11,7 @@ services:
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
     ports:
-      - "${DB_PORT}:${DB_PORT}"
+      - "${DB_PORT}"
     networks:
       - db-network
 
@@ -24,7 +24,7 @@ services:
     environment:
       - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
     ports:
-      - "${FRONT_PORT}:${FRONT_PORT}"
+      - "${FRONT_PORT}"
     networks:
       - air-in-network
     depends_on:
@@ -46,7 +46,7 @@ services:
     environment:
       - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
     ports:
-      - "${BACK_PORT}:${BACK_PORT}"
+      - "${BACK_PORT}"
     networks:
       - air-in-network
       - db-network

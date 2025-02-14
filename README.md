@@ -16,8 +16,6 @@ Certifique-se de ter docker e docker compose instalado:
 - docker (v27.5.1 testado): https://docs.docker.com/engine/install/
 - docker compose (v2.32.4 testado): https://docs.docker.com/compose/install/
 
-Também garanta que nenhuma das portas utilizadas pela a aplicação esteja em uso.
-
 ### Criar chave API 
 Primeiramente é necessário criar uma chave API em: https://openweathermap.org/api
 
