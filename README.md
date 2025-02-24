@@ -18,7 +18,7 @@ First, you need to create an API key at: https://openweathermap.org/api
 ### Clone the Repository:
 
 ```bash
-  git clone https://github.com/vinifen/air-in-docker.git
+git clone https://github.com/vinifen/air-in-docker.git
 ```
 
 ### Create .env:
@@ -28,7 +28,7 @@ Create a `.env` file in the project root for general configuration. Follow the m
 ### Run the Application in Development Mode:
 
 ```bash
-  sudo docker compose -f docker-compose-dev.yml up -d
+sudo docker compose -f docker-compose-dev.yml up -d
 ```
 
 After installing the application, wait a few seconds for everything to be configured inside the containers.
@@ -36,24 +36,24 @@ After installing the application, wait a few seconds for everything to be config
 ### Start the Application in Production:
 
 ```bash
-  sudo docker compose -f docker-compose-prod.yml up -d
+sudo docker compose -f docker-compose-prod.yml up -d
 ```
 
 ### Delete Containers:
 
 ```bash
-  sudo docker stop db backend frontend web
+sudo docker stop db backend frontend web
 ```
 
 ```bash
-  sudo docker rm db backend frontend web
+sudo docker rm db backend frontend web
 ```
 Ignore errors for non-existent containers.
 
 ### Delete All Images:
 
 ```bash
-  sudo docker rmi air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
+sudo docker rmi air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
 ```
 Ignore errors for non-existent images.
 
