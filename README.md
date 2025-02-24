@@ -53,7 +53,7 @@ Ignore errors for non-existent containers.
 ### Delete All Images:
 
 ```bash
-sudo docker rmi air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
+sudo docker rmi nginx:stable-alpine3.20-perl air-in-web air-in-db air-in-backend air-in-frontend node:23-alpine3.20
 ```
 Ignore errors for non-existent images.
 
