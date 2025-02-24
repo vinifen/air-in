@@ -1,51 +1,45 @@
 # Air-in
 #### v-1.1
 
-http://air-in.space/
+[Visit Air-in](http://air-in.space/)
 
-Air-in é um aplicativo desenvolvido por Vinicius FN, para pesquisa do clima em qualquer cidade do mundo. Foi criado com o objetivo de aprimorar habilidades no desenvolvimento de software web.
+Air-in is a website for checking the weather in any city around the world. It was created with the goal of enhancing web software development skills using Angular 18, Node.js with Fastify, MySQL, JWT tokens and Docker.
 
-Esse repositório é um dos três criados para o desenvolvimento do projeto, sendo os outros dois:
-- frontend: https://github.com/vinifen/air-in
-- backend: https://github.com/vinifen/air-in-backend
+## Installation:
 
+Make sure you have Docker and Docker Compose installed:
+- Docker (v27.5.1 tested): https://docs.docker.com/engine/install/
+- Docker Compose (v2.32.4 tested): https://docs.docker.com/compose/install/
 
-## Instalação:
-
-Certifique-se de ter docker e docker compose instalado:
-- docker (v27.5.1 testado): https://docs.docker.com/engine/install/
-- docker compose (v2.32.4 testado): https://docs.docker.com/compose/install/
-
-### Criar chave API 
-Primeiramente é necessário criar uma chave API em: https://openweathermap.org/api
+### Create an API Key
+First, you need to create an API key at: https://openweathermap.org/api
 
 
-### Clonar repositório:
+### Clone the Repository:
 
 ```bash
   git clone https://github.com/vinifen/air-in-docker.git
 ```
 
-### Criar .env
+### Create .env:
 
-Criar na raíz do projeto o arquivo `.env` para a configuração geral.
-Siga o modelo de .env.example e altere WEATHER_API_KEY para sua chave gerada.
+Create a `.env` file in the project root for general configuration. Follow the model in `.env.example` and change `WEATHER_API_KEY` to your generated key.
 
-### Rodar aplicação em modo de desenvolvimento:
+### Run the Application in Development Mode:
 
 ```bash
   sudo docker compose -f docker-compose-dev.yml up -d
 ```
 
-Após a instalação da aplicação esperar alguns segundos para tudo ser configurado dentro dos containeres.
+After installing the application, wait a few seconds for everything to be configured inside the containers.
 
-### Iniciar aplicação em produção:
+### Start the Application in Production:
 
 ```bash
   sudo docker compose -f docker-compose-prod.yml up -d
 ```
 
-### Deletar containeres:
+### Delete Containers:
 
 ```bash
   sudo docker stop db backend frontend web
@@ -54,12 +48,15 @@ Após a instalação da aplicação esperar alguns segundos para tudo ser config
 ```bash
   sudo docker rm db backend frontend web
 ```
-Ignorar erros de containers inexistentes.
+Ignore errors for non-existent containers.
 
-### Deletar todas as images:
+### Delete All Images:
 
 ```bash
   sudo docker rmi air-in-docker-web air-in-docker-db air-in-docker-backend air-in-docker-frontend node:23-alpine3.20
 ```
-Ignorar erros de imagens inexistentes.
+Ignore errors for non-existent images.
 
+## Prototyping: 
+
+[Air-in Figma](https://www.figma.com/design/1M0Uc673vghA5KG11TwvNL/Air-In?node-id=0-1&p=f&t=WkTxNFTg8e0vyGeA-0)
