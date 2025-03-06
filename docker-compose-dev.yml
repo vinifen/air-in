@@ -10,8 +10,8 @@ services:
         DB_PASSWORD: ${DB_PASSWORD}
         DB_NAME: ${DB_NAME}
         DB_USER: ${DB_USER}
-    ports:
-      - "${DB_PORT}"
+    # ports:
+    #   - "${DB_PORT}"
     networks:
       - db-network
 
@@ -23,8 +23,8 @@ services:
       - ./frontend:/frontend 
     environment:
       - WEB_BACK_URL=${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}${WEB_BACK_PATH}
-    ports:
-      - "${FRONT_PORT}"
+    # ports:
+      # - "${FRONT_PORT}"
     networks:
       - air-in-network
     depends_on:
@@ -45,8 +45,8 @@ services:
       - .env
     environment:
       - WEB_URL="${WEB_SCHEME_DEV}://${WEB_DOMAIN_DEV}:${WEB_PORT_DEV}"
-    ports:
-      - "${BACK_PORT}"
+    # ports:
+    #   - "${BACK_PORT}"
     networks:
       - air-in-network
       - db-network
