@@ -7,6 +7,8 @@ Air-in is a website for checking the weather in any city around the world. It wa
 
 ## Installation:
 
+- Tested on Ubuntu 24.10 / 24.4 and not working on Debian
+
 Make sure you have Docker and Docker Compose installed:
 - Docker (v27.5.1 tested): https://docs.docker.com/engine/install/
 - Docker Compose (v2.32.4 tested): https://docs.docker.com/compose/install/
