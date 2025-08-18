@@ -46,7 +46,7 @@ export class DeleteCitiesComponent implements OnDestroy{
 
   ngOnDestroy(): void {
     if(this.isDeleteCitiesWModeOn$){
-     this.toggleDeleteMode();
+      this.toggleDeleteMode();
     }
   }
 }
