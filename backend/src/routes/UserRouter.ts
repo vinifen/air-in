@@ -21,7 +21,7 @@ export default async function UserRouter(app: FastifyInstance, injections: { db:
 
   app.get("/users", {preHandler: verifyAuth(injections.jwtSessionRefreshS)}, async (request, reply) => {
     const {sessionToken} = request.cookies as {sessionToken: string}
-   
+    
     try {
       const data = await userControl.getUser(sessionToken);
       if(!data.status){

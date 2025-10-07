@@ -7,7 +7,7 @@ export default class CitiesModel {
 
   async insertCity(data: [string, number][]) {
     const query = "INSERT INTO cities(name, id_users) VALUES ?";
-     
+
     await this.dbService.getQuery(query, [data]);
     return data;
   }

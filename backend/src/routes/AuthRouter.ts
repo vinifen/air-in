@@ -41,7 +41,7 @@ export default function AuthRouter(app: FastifyInstance, injections: { db: DbSer
 
   app.post("/auth/refresh-token", async (request, reply) => {
     const refreshToken: string | undefined = request.cookies.refreshToken;
- 
+
     if (!refreshToken) {
       return sendResponse(reply, 400, { message: "Refresh token is required" });
     }
