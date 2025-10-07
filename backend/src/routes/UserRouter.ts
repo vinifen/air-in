@@ -73,7 +73,7 @@ export default async function UserRouter(app: FastifyInstance, injections: { db:
   app.delete("/users", {preHandler: verifyAuth(injections.jwtSessionRefreshS)}, async (request, reply) => {
     const {sessionToken} = request.cookies as {sessionToken: string};
     const {password} = request.body as {password: string};
-   
+    
     try {
       const data = await userControl.deleteUser(sessionToken, password);
       if(!data.status){
