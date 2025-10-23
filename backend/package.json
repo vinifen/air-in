@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-    "@types/jsonwebtoken": "^9.0.7",
+    "@types/jsonwebtoken": "^8.5.8",
     "@vitest/coverage-v8": "^2.1.8",
     "vitest": "^2.1.8"
   }
